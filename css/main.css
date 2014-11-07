@@ -1,0 +1,28 @@
+body {
+    padding-left: 10%;
+}
+
+header {
+    width: 100%;
+}
+
+.courseBlock {
+    padding: 5%;
+    border: solid 5px;
+}
+
+.quarterSelect {
+    display: inline;
+}
+
+.courseTitle {
+    float: left;
+}
+
+.courseQuarters {
+    float: right;
+}
+
+.courseInfo {
+    clear: both;
+}
