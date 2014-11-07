@@ -2,17 +2,30 @@ body {
     padding-left: 10%;
 }
 
-header {
-    width: 100%;
+.quarterSelectors {
+    padding: 0;
+    margin: 0;
 }
 
 .courseBlock {
-    padding: 5%;
+    padding: 1%;
     border: solid 5px;
 }
 
 .quarterSelect {
-    display: inline;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+    float: left;
+    border-top: solid 2px;
+    border-bottom: solid 2px;
+    border-right: solid 2px;
+}
+
+.quarterSelectFirst {
+    border-left: solid 2px;
 }
 
 .courseTitle {
