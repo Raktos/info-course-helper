@@ -1,15 +1,58 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:300);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+
 body {
     padding-left: 10%;
+    background-image: url(../img/background.png);
+    font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+
+
+header {
+    background-color: #D7A900;
+    color: #3f2b65;
+    font-family: 'Raleway', 'Helvetica Neue', 'Helvetica', sans-serif;
+    font-weight: 300;
+    margin: 1em;
+}
+
+main {
+    margin-top: 5em;
+}
+
+h1, h2, h3 {
+    font-family: 'Raleway', 'Helvetica Neue', 'Helvetica', sans-serif;
+    margin: 0;
+    color: #3f2b65;
+    font-weight: 300;
+
+}
+
+h2 {
+    font-size: 150%;
+
+}
+
+h3 {
+    font-size: 125%;
 }
 
 .quarterSelectors {
     padding: 0;
     margin: 0;
+    overflow: hidden;
 }
+
+
 
 .courseBlock {
     padding: 1%;
-    border: solid 5px;
+    border: solid 5px white;
+    background-color: white;
+    margin: 1em;
 }
 
 .quarterSelect {
