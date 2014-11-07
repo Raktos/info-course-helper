@@ -4,6 +4,12 @@ body {
 
 header {
     width: 100%;
+    background-color: #d7a900;
+
+}
+
+.container {
+	width: 100%;
 }
 
 .courseBlock {
