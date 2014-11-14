@@ -9,8 +9,6 @@ body {
     font-weight: 300;
 }
 
-
-
 header {
     background-color: #D7A900;
     color: #3f2b65;
@@ -33,7 +31,6 @@ h1, h2, h3 {
 
 h2 {
     font-size: 150%;
-
 }
 
 h3 {
@@ -46,11 +43,10 @@ h3 {
     overflow: hidden;
 }
 
-
-
 .courseBlock {
     padding: 1%;
     border: solid 5px white;
+    border-radius: 5px;
     background-color: white;
     margin: 1em;
 }
@@ -79,6 +75,22 @@ h3 {
     float: right;
 }
 
+.courseQuarters img {
+    max-width: 20px;
+    max-height: 20px;
+}
+
 .courseInfo {
     clear: both;
+}
+
+.classCategory {
+    font-size: small;
+    color: #888;
+    font-style: italic;
+    margin-left: 1em;
+}
+
+.credits {
+    margin: 0;
 }
