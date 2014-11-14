@@ -45,9 +45,8 @@ h3 {
 
 .courseBlock {
     padding: 1%;
-    border: solid 5px white;
     border-radius: 5px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, .6);
     margin: 1em;
 }
 
@@ -80,17 +79,10 @@ h3 {
     max-height: 20px;
 }
 
-.courseInfo {
-    clear: both;
-}
-
-.classCategory {
+.courseCredits {
     font-size: small;
     color: #888;
     font-style: italic;
     margin-left: 1em;
-}
-
-.credits {
-    margin: 0;
+    clear: both;
 }
