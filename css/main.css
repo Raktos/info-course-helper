@@ -2,8 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400);
 
 body {
-    padding-left: 10%;
-    background-image: url(../img/background.png);
+    background: url(../img/background.png) fixed;
     font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
     font-size: 18px;
     font-weight: 300;
@@ -18,7 +17,8 @@ header {
 }
 
 main {
-    margin-top: 5em;
+    padding-right: 1em;
+    padding-left: 10%;
 }
 
 h1, h2, h3 {
@@ -35,6 +35,12 @@ h2 {
 
 h3 {
     font-size: 125%;
+}
+
+.courseCategory {
+    margin-bottom: 2em;
+    border-bottom: solid 5px rgba(63, 43, 101, .7);
+    border-radius: 10px;
 }
 
 .quarterSelectors {
@@ -85,4 +91,15 @@ h3 {
     font-style: italic;
     margin-left: 1em;
     clear: both;
+}
+
+.coursePreReqs {
+    float: right;
+}
+
+.coursePreReqs p {
+    float: left;
+    margin-right: 1em;
+    font-size: small;
+    color: darkred;
 }
