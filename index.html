@@ -15,6 +15,8 @@
             <h1>Informatics Course Helper</h1>
             <p class="lead">Easier to view classes</p>
         </header>
+
+        <!--TODO fix nav to viewport on scroll-->
         <nav class="quarterSelectors">
             <ul>
                 <li class="quarterSelect"><a href="#">Autumn</a></li>
@@ -24,7 +26,7 @@
             </ul>
         </nav>
 
-        <main>
+        <main ng-if="!loading">
             <div class="courseCategory">
                 <h2>Core</h2>
                 <div class="courseBlock" ng-repeat="course in courses">
@@ -56,6 +58,7 @@
                 </div>
             </div>
         </main>
+        <!--TODO loading gif-->
         <script src="js/app.js"></script>
     </body>
 </html>

@@ -1,6 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:300);
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400);
 
+/*TODO get nav bar stuck touching banner*/
+
 body {
     background: url(../img/background.png) fixed;
     font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;

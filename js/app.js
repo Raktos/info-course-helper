@@ -14,7 +14,7 @@ angular.module('CoursesApp', [])
     .controller('CoursesController', function($scope, $http) {
         $scope.courses = [];
         $scope.errorMessage = null;
-        $scope.loading = null;
+        $scope.loading = false;
 
         $scope.getCourses = function() {
             $scope.loading = true;
