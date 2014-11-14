@@ -2,8 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400);
 
 body {
-    padding-left: 10%;
-    background-image: url(../img/background.png);
+    background: url(../img/background.png) fixed;
     font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
     font-size: 18px;
     font-weight: 300;
@@ -41,7 +40,6 @@ nav a:focus {
     text-decoration: none;
 }
 
-
 header {
     background-color: #D7A900;
     color: #3f2b65;
@@ -52,7 +50,8 @@ header {
 }
 
 main {
-    margin-top: 5em;
+    padding-right: 1em;
+    padding-left: 10%;
 }
 
 h1, h2, h3 {
@@ -65,11 +64,16 @@ h1, h2, h3 {
 
 h2 {
     font-size: 150%;
-
 }
 
 h3 {
     font-size: 125%;
+}
+
+.courseCategory {
+    margin-bottom: 2em;
+    border-bottom: solid 5px rgba(63, 43, 101, .7);
+    border-radius: 10px;
 }
 
 .quarterSelectors {
@@ -77,6 +81,7 @@ h3 {
     margin: 0;
     overflow: hidden;
 }
+
 
 header, .courseBlock {
     padding: 1em;
@@ -91,6 +96,25 @@ header, .courseBlock {
     margin-bottom: 1em;
 }
 
+.courseBlock {
+    padding: 1%;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .6);
+    margin: 1em;
+}
+
+.quarterSelect {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+    float: left;
+    border-top: solid 2px;
+    border-bottom: solid 2px;
+    border-right: solid 2px;
+}
+
 
 .courseTitle {
     float: left;
@@ -100,6 +124,26 @@ header, .courseBlock {
     float: right;
 }
 
-.courseInfo {
+.courseQuarters img {
+    max-width: 20px;
+    max-height: 20px;
+}
+
+.courseCredits {
+    font-size: small;
+    color: #888;
+    font-style: italic;
+    margin-left: 1em;
     clear: both;
+}
+
+.coursePreReqs {
+    float: right;
+}
+
+.coursePreReqs p {
+    float: left;
+    margin-right: 1em;
+    font-size: small;
+    color: darkred;
 }
