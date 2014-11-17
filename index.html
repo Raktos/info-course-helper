@@ -31,6 +31,11 @@
         <h2>Core</h2>
         <div class="courseBlock" ng-repeat="course in courses">
 
+        <main ng-if="!loading">
+            <div class="courseCategory" ng-repeat="category in coursesAll">
+                <h2>{{category.category}}</h2>
+                <div class="courseBlock" ng-repeat="course in category.coursesFiltered">
+
             <!--TODO Junior vs Senior year recommendation-->
 
             <div class="courseQuarters">
@@ -39,6 +44,12 @@
                 <img src="img/season.png" alt="spring"/>
                 <img src="img/season.png" alt="summer"/>
             </div>
+                    <div class="courseQuarters">
+                        <img src="img/autumn.png" alt="autumn"/>
+                        <img src="img/winter.png" alt="winter"/>
+                        <img src="img/spring.png" alt="spring"/>
+                        <img src="img/summer.png" alt="summer"/>
+                    </div>
 
             <h3 class="courseTitle">{{course.courseNumber}} - {{course.courseTitle}}</h3>
 
@@ -61,4 +72,9 @@
 <!--TODO loading gif-->
 <script src="js/app.js"></script>
 </body>
+        </main>
+        <!--TODO loading gif-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+        <script src="js/app.js"></script>
+    </body>
 </html>
