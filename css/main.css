@@ -14,6 +14,7 @@ body {
 
 header {
     padding: 1em;
+
 }
 
 nav {
@@ -105,7 +106,6 @@ h3 {
     border-bottom: solid 2px;
     border-right: solid 2px;
     background-color: #3f2b65;
-
 }
 
 
@@ -139,4 +139,18 @@ h3 {
     margin-right: 1em;
     font-size: small;
     color: darkred;
+}
+
+.searchBox {
+    margin-top: 20px;
+    padding: 0.25em;
+    width: 1750px;
+    margin-left: 100px;
+    margin-bottom: 10px;
+}
+
+.container-search {
+    margin-left: 210px;
+
+
 }
