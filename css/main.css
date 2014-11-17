@@ -1,5 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:300);
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+
 
 /*TODO get nav bar stuck touching banner*/
 
@@ -141,16 +143,32 @@ h3 {
     color: darkred;
 }
 
-.searchBox {
-    margin-top: 20px;
-    padding: 0.25em;
-    width: 1750px;
-    margin-left: 100px;
-    margin-bottom: 10px;
+.search {
+    position: relative;
+    color: #aaa;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
-.container-search {
-    margin-left: 210px;
-
-
+.search input {
+    width: 250px;
+    height: 40px;
+    width: 1850px;
+    background: #fcfcfc;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
 }
+
+.search input {
+    text-indent: 32px;
+}
+
+.search .fa-search {
+    position: absolute;
+    top: 13px;
+    left: 13px;
+}
+
+

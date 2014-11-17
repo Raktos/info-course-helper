@@ -30,14 +30,17 @@
         </ul>
     </nav>
 
-    <div class="box">
-        <div class="container-search">
-            <span class="icon"><i class="fa fa-search"></i></span>
-            <input type="search" class="searchBox" id="search" placeholder="Search..." />
-        </div>
-    </div>
 
     <main ng-if="!loading">
+
+        <div class="search">
+            <div class="container-search">
+                <span class="icon"><i class="fa fa-search"></i></span>
+                <input type="search" class="searchBox" id="search" placeholder="Search..." />
+            </div>
+        </div>
+
+
         <div class="courseCategory" ng-repeat="category in coursesAll">
             <h2>{{category.category}}</h2>
             <div class="courseBlock" ng-repeat="course in category.coursesFiltered">
