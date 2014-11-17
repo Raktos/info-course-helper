@@ -51,20 +51,16 @@
                         <img src="img/summer.png" alt="summer"/>
                     </div>
 
-                    <h3 class="courseTitle">{{course.courseNumber}} - {{course.courseTitle}}</h3>
+                    <h3 class="courseTitle">{{course.courseSchool}} {{course.courseNumber}} - {{course.courseTitle}}</h3>
 
                     <p class="courseCredits">({{course.credits}} credits) {{course.genre}}</p>
 
                     <p class="courseInfo">{{course.description}}</p>
 
-                    <a href="https://uwstudent.washington.edu/student/myplan/course/INFO101">View in MyPlan</a>
+                    <a href="https://uwstudent.washington.edu/student/myplan/course/{{course.courseSchool}}{{course.courseNumber}}">View in MyPlan</a>
 
-                    <div class="coursePreReqs">
-                        <p>Requires:</p>
-                        <p>INFO 001</p>
-                        <p>INFO 002</p>
-                        <p>INFO 003</p>
-                        <p>INFO 004</p>
+                    <div class="coursePreReqs" ng-if="course.prerequisite">
+                        <p>Requires: {{course.prerequisite}}</p>
                     </div>
                 </div>
             </div>
