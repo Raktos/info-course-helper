@@ -27,9 +27,9 @@
         </nav>
 
         <main ng-if="!loading">
-            <div class="courseCategory">
-                <h2>Core</h2>
-                <div class="courseBlock" ng-repeat="course in courses">
+            <div class="courseCategory" ng-repeat="category in coursesAll">
+                <h2>{{category.category}}</h2>
+                <div class="courseBlock" ng-repeat="course in category.coursesFiltered">
 
                     <!--TODO Junior vs Senior year recommendation-->
 
@@ -59,6 +59,7 @@
             </div>
         </main>
         <!--TODO loading gif-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
         <script src="js/app.js"></script>
     </body>
 </html>

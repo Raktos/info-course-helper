@@ -12,16 +12,21 @@ angular.module('CoursesApp', [])
         $httpProvider.defaults.headers.common['X-Parse-REST-API-Key'] = 'yaNum4wz2FQcIzSPniCalxDKiU8gxtgyAfn0SHXU';
     })
     .controller('CoursesController', function($scope, $http) {
-        $scope.courses = [];
+        $scope.coursesAll = [];
         $scope.errorMessage = null;
         $scope.loading = false;
+        $scope.categories = ['Core', 'Prerequisite', 'Elective'];
 
         $scope.getCourses = function() {
             $scope.loading = true;
 
             $http.get(coursesUrl)
                 .success(function(data) {
-                    $scope.courses = data.results;
+//                    $scope.courses = data.results;
+                    _.forEach($scope.categories, function(cat) {
+                        $scope.coursesAll.push({category: cat, coursesFiltered: _.filter(data.results, function(course) {return course.category == cat;})});
+                    });
+                    console.log($scope.coursesAll);
                 })
                 .error(function(err) {
                     $scope.errorMessage = err;
@@ -33,5 +38,5 @@ angular.module('CoursesApp', [])
 
         $scope.getCourses();
 
-        console.log($scope.courses);
+        console.log($scope.coursesAll);
     });
