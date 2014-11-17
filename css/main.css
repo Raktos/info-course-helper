@@ -1,26 +1,93 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:300);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+
+/*TODO get nav bar stuck touching banner*/
+
 body {
+    background: url(../img/background.png) fixed;
+    font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    font-size: 125%;
+    padding: 0.5em;
+    color: #EEEEEE;
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav a:link,
+nav a:visited {
+    color: #DDD;
+}
+
+nav a:hover,
+nav a:focus {
+    color: #FFF;
+    text-decoration: none;
+}
+
+header {
+    background-color: #D7A900;
+    color: #3f2b65;
+    font-family: 'Raleway', 'Helvetica Neue', 'Helvetica', sans-serif;
+    font-weight: 300;
+    margin: 0;
+}
+
+main {
+    padding-right: 1em;
     padding-left: 10%;
 }
 
-<<<<<<< HEAD
-header {
-    width: 100%;
-    background-color: #d7a900;
+h1, h2, h3 {
+    font-family: 'Raleway', 'Helvetica Neue', 'Helvetica', sans-serif;
+    margin: 0;
+    color: #3f2b65;
+    font-weight: 300;
 
 }
 
-.container {
-	width: 100%;
-=======
+h2 {
+    font-size: 150%;
+}
+
+h3 {
+    font-size: 125%;
+}
+
+.courseCategory {
+    margin-bottom: 2em;
+    border-bottom: solid 5px rgba(63, 43, 101, .7);
+    border-radius: 10px;
+}
+
 .quarterSelectors {
     padding: 0;
     margin: 0;
->>>>>>> af3835e18630c6d7bc916ff91c28b343b4f715c8
+    overflow: hidden;
+    font-size: 125%;
+    color: #EEEEEE;
 }
 
 .courseBlock {
-    padding: 1%;
-    border: solid 5px;
+    padding: 1em;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 .quarterSelect {
@@ -33,11 +100,9 @@ header {
     border-top: solid 2px;
     border-bottom: solid 2px;
     border-right: solid 2px;
+    background-color: #3f2b65;
 }
 
-.quarterSelectFirst {
-    border-left: solid 2px;
-}
 
 .courseTitle {
     float: left;
@@ -47,6 +112,26 @@ header {
     float: right;
 }
 
-.courseInfo {
+.courseQuarters img {
+    max-width: 20px;
+    max-height: 20px;
+}
+
+.courseCredits {
+    font-size: small;
+    color: #888;
+    font-style: italic;
+    margin-left: 1em;
     clear: both;
+}
+
+.coursePreReqs {
+    float: right;
+}
+
+.coursePreReqs p {
+    float: left;
+    margin-right: 1em;
+    font-size: small;
+    color: darkred;
 }
