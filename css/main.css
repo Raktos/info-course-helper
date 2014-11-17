@@ -12,6 +12,10 @@ body {
     margin: 0;
 }
 
+.iSchool-Banner {
+
+}
+
 nav {
     font-size: 125%;
     padding: 0.5em;
@@ -134,4 +138,18 @@ h3 {
     margin-right: 1em;
     font-size: small;
     color: darkred;
+}
+
+.searchBox {
+    margin-top: 20px;
+    padding: 0.25em;
+    width: 1750px;
+    margin-left: 100px;
+    margin-bottom: 10px;
+}
+
+.container-search {
+    margin-left: 210px;
+
+
 }
