@@ -22,7 +22,6 @@ angular.module('CoursesApp', [])
 
             $http.get(coursesUrl)
                 .success(function(data) {
-//                    $scope.courses = data.results;
                     _.forEach($scope.categories, function(cat) {
                         $scope.coursesAll.push({category: cat, coursesFiltered: _.filter(data.results, function(course) {return course.category == cat;})});
                     });

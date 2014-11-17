@@ -1,72 +1,73 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>iSchool Course Helper</title>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>iSchool Course Helper</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.2/angular.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.min.js"></script>
-</head>
-<body ng-app="CoursesApp" ng-controller="CoursesController">
-<header>
-    <h1>Informatics Course Helper</h1>
-    <p class="lead">Easier to view classes</p>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.2/angular.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.min.js"></script>
+    </head>
+    <body ng-app="CoursesApp" ng-controller="CoursesController">
+    <header>
+        <h1>Informatics Course Helper</h1>
+        <p class="lead">Easier to view classes</p>
 
-</header>
-
-
+    </header>
 
 
-<!--TODO fix nav to viewport on scroll-->
-<nav class="quarterSelectors">
-    <ul>
-        <li class="quarterSelect"><a href="#">Autumn</a></li>
-        <li class="quarterSelect"><a href="#">Winter</a></li>
-        <li class="quarterSelect"><a href="#">Spring</a></li>
-        <li class="quarterSelect"><a href="#">Summer</a></li>
-    </ul>
-</nav>
 
-<div class="box">
-    <div class="container-search">
-        <span class="icon"><i class="fa fa-search"></i></span>
-        <input type="search" class="searchBox" id="search" placeholder="Search..." />
-    </div>
-</div>
 
-<main ng-if="!loading">
-    <div class="courseCategory" ng-repeat="category in coursesAll">
-        <h2>{{category.category}}</h2>
-        <div class="courseBlock" ng-repeat="course in category.coursesFiltered">
+    <!--TODO fix nav to viewport on scroll-->
+    <nav class="quarterSelectors">
+        <ul>
+            <li class="quarterSelect"><a href="#">Autumn</a></li>
+            <li class="quarterSelect"><a href="#">Winter</a></li>
+            <li class="quarterSelect"><a href="#">Spring</a></li>
+            <li class="quarterSelect"><a href="#">Summer</a></li>
+        </ul>
+    </nav>
 
-            <!--TODO Junior vs Senior year recommendation-->
-
-            <div class="courseQuarters">
-                <img src="img/autumn.png" alt="autumn"/>
-                <img src="img/winter.png" alt="winter"/>
-                <img src="img/spring.png" alt="spring"/>
-                <img src="img/summer.png" alt="summer"/>
-            </div>
-
-            <h3 class="courseTitle">{{course.courseSchool}} {{course.courseNumber}} - {{course.courseTitle}}</h3>
-
-            <p class="courseCredits">({{course.credits}} credits) {{course.genre}}</p>
-
-            <p class="courseInfo">{{course.description}}</p>
-
-            <a href="https://uwstudent.washington.edu/student/myplan/course/{{course.courseSchool}}{{course.courseNumber}}">View in MyPlan</a>
-
-            <div class="coursePreReqs" ng-if="course.prerequisite">
-                <p>Requires: {{course.prerequisite}}</p>
-            </div>
+    <div class="box">
+        <div class="container-search">
+            <span class="icon"><i class="fa fa-search"></i></span>
+            <input type="search" class="searchBox" id="search" placeholder="Search..." />
         </div>
     </div>
-</main>
-<!--TODO loading gif-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
-<script src="js/app.js"></script>
-</body>
+
+    <main ng-if="!loading">
+        <div class="courseCategory" ng-repeat="category in coursesAll">
+            <h2>{{category.category}}</h2>
+            <div class="courseBlock" ng-repeat="course in category.coursesFiltered">
+
+                <!--TODO Junior vs Senior year recommendation-->
+
+                <div class="courseQuarters">
+                    <!--TODO swap to blank image when not avaliable that quarter-->
+                    <img src="img/autumn.png" alt="autumn"/>
+                    <img src="img/winter.png" alt="winter"/>
+                    <img src="img/spring.png" alt="spring"/>
+                    <img src="img/summer.png" alt="summer"/>
+                </div>
+
+                <h3 class="courseTitle">{{course.courseSchool}} {{course.courseNumber}} - {{course.courseTitle}}</h3>
+
+                <p class="courseCredits">({{course.credits}} credits) {{course.genre}}</p>
+
+                <p class="courseInfo">{{course.description}}</p>
+
+                <a href="https://uwstudent.washington.edu/student/myplan/course/{{course.courseSchool}}{{course.courseNumber}}">View in MyPlan</a>
+
+                <div class="coursePreReqs" ng-if="course.prerequisite">
+                    <p>Requires: {{course.prerequisite}}</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--TODO loading gif-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+    <script src="js/app.js"></script>
+    </body>
 </html>
