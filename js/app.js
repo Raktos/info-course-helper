@@ -22,6 +22,9 @@ angular.module('CoursesApp', [])
 
             $http.get(coursesUrl)
                 .success(function(data) {
+                    //TODO loop to grab categories
+
+                    //for each category, push an object to our array with two properties, a category and an array containing objects from parse that match that category
                     _.forEach($scope.categories, function(cat) {
                         $scope.coursesAll.push({category: cat, coursesFiltered: _.filter(data.results, function(course) {return course.category == cat;})});
                     });
