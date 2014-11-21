@@ -48,6 +48,9 @@
         <div class="courseCategory" ng-repeat="category in coursesAll | filter : searchString ">
             <h2>{{category.category}}</h2>
             <div class="courseBlock" ng-repeat="course in category.coursesFiltered">
+                <!--TODO Junior vs Senior year recommendation-->
+                <!--TODO sorting by quarter-->
+
 
                 <div class="courseQuarters">
                     <img ng-if="course.autumn" src="img/autumn.png" alt="autumn"/>
@@ -75,6 +78,8 @@
                     <div class="coursePreReqs" ng-if="course.prerequisite">
                         <p>Requires: {{course.prerequisite}}</p>
                     </div>
+
+                    <!--TODO user comments-->
                 </div>
 
                 <img class="arrow" src="img/autumn.png" alt="" ng-click="expandSection(course)"/>
@@ -89,5 +94,3 @@
     <script src="js/app.js"></script>
     </body>
 </html>
-
-<!--TODO Junior vs Senior year recommendation-->

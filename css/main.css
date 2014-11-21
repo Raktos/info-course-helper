@@ -27,7 +27,6 @@ nav {
     width: 100%;
 }
 
-
 ul {
     margin: 0;
     padding: 0;
@@ -216,7 +215,6 @@ h3 {
     -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
-
 
 .slider.expanded {
     max-height: 1000px;

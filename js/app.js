@@ -55,31 +55,26 @@ angular.module('CoursesApp', [])
             console.log($scope.coursesAll);
         };
 
-
         $scope.expandSection = function(course) {
             course.expanded = !course.expanded;
         };
 
-
         $scope.getCourses();
-
 
         console.log($scope.coursesAll);
     });
 
-
-
-
+//TODO if possible make this work in angular so we don't have to import 2 gigantic libraries
 jQuery(document).ready(function() {
     jQuery('p a[href!="#top"]').attr('target', '_blank');
     jQuery('section').hide().fadeIn(1000);
 
     jQuery('nav a, p a[href="#top"]').click(function (eventObject) {
-    //console.log(this.hash);
-    var targetElement = jQuery(this.hash);
-    jQuery('html,body').animate({scrollTop: targetElement.offset().top - navHeight}, 700);
+        //console.log(this.hash);
+        var targetElement = jQuery(this.hash);
+        jQuery('html,body').animate({scrollTop: targetElement.offset().top - navHeight}, 700);
 
-    eventObject.preventDefault();
+        eventObject.preventDefault();
     });
 
     var nav = $('nav');
@@ -89,18 +84,18 @@ jQuery(document).ready(function() {
     navPlaceholder.height(navHeight);
 
     $(window).scroll(function () {
-    var scrollPos = $(this).scrollTop(); //returns scroll position of this (which is the current window)
-    //console.log(scrollPos);
+        var scrollPos = $(this).scrollTop(); //returns scroll position of this (which is the current window)
+        //console.log(scrollPos);
 
-    //once the nav bar's top is off the screen...
-    if (scrollPos > navTop) {
-    //...fix it to the window
-    nav.addClass('nav-fixed');
-    navPlaceholder.show();
-    } else {
-    nav.removeClass('nav-fixed');
-    navPlaceholder.hide();
-    }
+        //once the nav bar's top is off the screen...
+        if (scrollPos > navTop) {
+        //...fix it to the window
+            nav.addClass('nav-fixed');
+            navPlaceholder.show();
+        } else {
+            nav.removeClass('nav-fixed');
+            navPlaceholder.hide();
+        }
     });
 
 });
