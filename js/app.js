@@ -12,30 +12,21 @@ angular.module('CoursesApp', [])
         $httpProvider.defaults.headers.common['X-Parse-REST-API-Key'] = 'yaNum4wz2FQcIzSPniCalxDKiU8gxtgyAfn0SHXU';
     })
     .controller('CoursesController', function($scope, $http) {
+        $scope.coursesRaw = [];
         $scope.coursesAll = [];
         $scope.errorMessage = null;
         $scope.loading = false;
 //        $scope.categories = ['Core', 'Prerequisite', 'Elective'];
         $scope.categories = [];
+        $scope.searchString = '';
 
         $scope.getCourses = function() {
             $scope.loading = true;
 
             $http.get(coursesUrl)
                 .success(function(data) {
-                    _.forEach(data.results, function(courseData) {
-                        if($scope.categories.indexOf(courseData.category) < 0) {
-                            $scope.categories.push(courseData.category);
-                        }
-                    });
-
-                    $scope.categories.sort();
-
-                    //for each category, push an object to our array with two properties, a category and an array containing objects from parse that match that category
-                    _.forEach($scope.categories, function(cat) {
-                        $scope.coursesAll.push({category: cat, coursesFiltered: _.filter(data.results, function(course) {return course.category == cat;})});
-                    });
-                    console.log($scope.coursesAll);
+                    $scope.coursesRaw = data.results;
+                    $scope.sortCourses();
                 })
                 .error(function(err) {
                     $scope.errorMessage = err;
@@ -45,20 +36,50 @@ angular.module('CoursesApp', [])
                 });
         }; // getCourses()
 
+        $scope.sortCourses = function() {
+            _.forEach($scope.coursesRaw, function(courseData) {
+                if($scope.categories.indexOf(courseData.category) < 0) {
+                    $scope.categories.push(courseData.category);
+                }
+
+                courseData.fullName = courseData.school + ' ' + courseData.number;
+                courseData.expanded = false;
+            });
+
+            $scope.categories.sort();
+
+            //for each category, push an object to our array with two properties, a category and an array containing objects from parse that match that category
+            _.forEach($scope.categories, function(cat) {
+                $scope.coursesAll.push({category: cat, coursesFiltered: _.filter($scope.coursesRaw, function(course) {return course.category == cat;})});
+            });
+            console.log($scope.coursesAll);
+        };
+
+
+        $scope.expandSection = function(course) {
+            course.expanded = !course.expanded;
+        };
+
+
         $scope.getCourses();
+
 
         console.log($scope.coursesAll);
     });
+
+
+
+
 jQuery(document).ready(function() {
     jQuery('p a[href!="#top"]').attr('target', '_blank');
     jQuery('section').hide().fadeIn(1000);
 
     jQuery('nav a, p a[href="#top"]').click(function (eventObject) {
-        //console.log(this.hash);
-        var targetElement = jQuery(this.hash);
-        jQuery('html,body').animate({scrollTop: targetElement.offset().top - navHeight}, 700);
+    //console.log(this.hash);
+    var targetElement = jQuery(this.hash);
+    jQuery('html,body').animate({scrollTop: targetElement.offset().top - navHeight}, 700);
 
-        eventObject.preventDefault();
+    eventObject.preventDefault();
     });
 
     var nav = $('nav');
@@ -68,18 +89,18 @@ jQuery(document).ready(function() {
     navPlaceholder.height(navHeight);
 
     $(window).scroll(function () {
-        var scrollPos = $(this).scrollTop(); //returns scroll position of this (which is the current window)
-        //console.log(scrollPos);
+    var scrollPos = $(this).scrollTop(); //returns scroll position of this (which is the current window)
+    //console.log(scrollPos);
 
-        //once the nav bar's top is off the screen...
-        if (scrollPos > navTop) {
-            //...fix it to the window
-            nav.addClass('nav-fixed');
-            navPlaceholder.show();
-        } else {
-            nav.removeClass('nav-fixed');
-            navPlaceholder.hide();
-        }
+    //once the nav bar's top is off the screen...
+    if (scrollPos > navTop) {
+    //...fix it to the window
+    nav.addClass('nav-fixed');
+    navPlaceholder.show();
+    } else {
+    nav.removeClass('nav-fixed');
+    navPlaceholder.hide();
+    }
     });
 
 });

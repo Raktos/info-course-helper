@@ -18,18 +18,19 @@
     </header>
 
 
-
-
     <!--TODO fix nav to viewport on scroll-->
     <nav class="quarterSelectors">
 
-        <ul>
-            <li class="quarterSelect"><a href="#">Autumn</a></li>
-            <li class="quarterSelect"><a href="#">Winter</a></li>
-            <li class="quarterSelect"><a href="#">Spring</a></li>
-            <li class="quarterSelect"><a href="#">Summer</a></li>
-        </ul>
-
+        <div class="btn-group">
+            <button type="button"  class="btn-quarterSelect"
+                    ng-click="sortBy('autumn')" ng-class="" >Autumn</button>
+            <button type="button"  class="btn-quarterSelect"
+                    ng-click="sortBy('winter')" ng-class="" >Winter</button>
+            <button type="button"  class="btn-quarterSelect"
+                    ng-click="sortBy('spring')" ng-class="" >Spring</button>
+            <button type="button"  class="btn-quarterSelect"
+                    ng-click="sortBy('summer')" ng-class="" >Summer</button>
+        </div>
     </nav>
     <div class="nav-placeholder"></div>
 
@@ -39,19 +40,16 @@
         <div class="search">
             <div class="container-search">
                 <span class="icon"><i class="fa fa-search"></i></span>
-                <input type="search" class="searchBox" id="search" placeholder="Search..." />
+                <input type="text" class="searchBox" id="search" ng-model="searchString" placeholder="Search..." />
             </div>
         </div>
 
 
-        <div class="courseCategory" ng-repeat="category in coursesAll">
+        <div class="courseCategory" ng-repeat="category in coursesAll | filter : searchString ">
             <h2>{{category.category}}</h2>
             <div class="courseBlock" ng-repeat="course in category.coursesFiltered">
 
-                <!--TODO Junior vs Senior year recommendation-->
-
                 <div class="courseQuarters">
-                    <!--TODO swap to blank image when not avaliable that quarter-->
                     <img ng-if="course.autumn" src="img/autumn.png" alt="autumn"/>
                     <img ng-if="!course.autumn" src="img/blank.png" alt="autumn"/>
 
@@ -69,15 +67,21 @@
 
                 <p class="courseCredits">({{course.credits}} credits) {{course.genre}}</p>
 
-                <p class="courseInfo">{{course.description}}</p>
+                <div class="slider" ng-class="{expanded: course.expanded}">
+                    <p class="courseInfo">{{course.description}}</p>
 
-                <a href="https://uwstudent.washington.edu/student/myplan/course/{{course.courseSchool}}{{course.courseNumber}}">View in MyPlan</a>
+                    <a href="https://uwstudent.washington.edu/student/myplan/course/{{course.courseSchool}}{{course.courseNumber}}">View in MyPlan</a>
 
-                <div class="coursePreReqs" ng-if="course.prerequisite">
-                    <p>Requires: {{course.prerequisite}}</p>
+                    <div class="coursePreReqs" ng-if="course.prerequisite">
+                        <p>Requires: {{course.prerequisite}}</p>
+                    </div>
                 </div>
+
+                <img class="arrow" src="img/autumn.png" alt="" ng-click="expandSection(course)"/>
             </div>
         </div>
+
+        <!--TODO back to top-->
     </main>
     <!--TODO loading gif-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
@@ -85,3 +89,5 @@
     <script src="js/app.js"></script>
     </body>
 </html>
+
+<!--TODO Junior vs Senior year recommendation-->
