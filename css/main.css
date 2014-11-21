@@ -152,10 +152,10 @@ h3 {
     margin-bottom: 15px;
 }
 
+
 .search input {
-    width: 250px;
     height: 40px;
-    width: 1850px;
+    width: 100%;
     background: #fcfcfc;
     border: 1px solid #aaa;
     border-radius: 5px;

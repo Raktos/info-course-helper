@@ -47,5 +47,8 @@ angular.module('CoursesApp', [])
 
         $scope.getCourses();
 
+        $scope.searchString = '';
+
+
         console.log($scope.coursesAll);
     });
