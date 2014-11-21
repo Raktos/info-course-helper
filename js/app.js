@@ -18,6 +18,7 @@ angular.module('CoursesApp', [])
         $scope.loading = false;
 //        $scope.categories = ['Core', 'Prerequisite', 'Elective'];
         $scope.categories = [];
+        $scope.searchString = '';
 
         $scope.getCourses = function() {
             $scope.loading = true;
@@ -42,6 +43,7 @@ angular.module('CoursesApp', [])
                 }
 
                 courseData.fullName = courseData.school + ' ' + courseData.number;
+                courseData.expanded = false;
             });
 
             $scope.categories.sort();
@@ -54,9 +56,13 @@ angular.module('CoursesApp', [])
         };
 
 
+        $scope.expandSection = function(course) {
+            course.expanded = !course.expanded;
+        };
+
+
         $scope.getCourses();
 
-        $scope.searchString = '';
     });
 
 // if user pressses Autumn, creates
