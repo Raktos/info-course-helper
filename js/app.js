@@ -12,6 +12,7 @@ angular.module('CoursesApp', [])
         $httpProvider.defaults.headers.common['X-Parse-REST-API-Key'] = 'yaNum4wz2FQcIzSPniCalxDKiU8gxtgyAfn0SHXU';
     })
     .controller('CoursesController', function($scope, $http) {
+        $scope.coursesRaw = [];
         $scope.coursesAll = [];
         $scope.errorMessage = null;
         $scope.loading = false;
@@ -23,19 +24,8 @@ angular.module('CoursesApp', [])
 
             $http.get(coursesUrl)
                 .success(function(data) {
-                    _.forEach(data.results, function(courseData) {
-                        if($scope.categories.indexOf(courseData.category) < 0) {
-                            $scope.categories.push(courseData.category);
-                        }
-                    });
-
-                    $scope.categories.sort();
-
-                    //for each category, push an object to our array with two properties, a category and an array containing objects from parse that match that category
-                    _.forEach($scope.categories, function(cat) {
-                        $scope.coursesAll.push({category: cat, coursesFiltered: _.filter(data.results, function(course) {return course.category == cat;})});
-                    });
-                    console.log($scope.coursesAll);
+                    $scope.coursesRaw = data.results;
+                    $scope.sortCourses();
                 })
                 .error(function(err) {
                     $scope.errorMessage = err;
@@ -45,10 +35,25 @@ angular.module('CoursesApp', [])
                 });
         }; // getCourses()
 
+        $scope.sortCourses = function() {
+            _.forEach($scope.coursesRaw, function(courseData) {
+                if($scope.categories.indexOf(courseData.category) < 0) {
+                    $scope.categories.push(courseData.category);
+                }
+
+                courseData.fullName = courseData.school + ' ' + courseData.number;
+            });
+
+            $scope.categories.sort();
+
+            //for each category, push an object to our array with two properties, a category and an array containing objects from parse that match that category
+            _.forEach($scope.categories, function(cat) {
+                $scope.coursesAll.push({category: cat, coursesFiltered: _.filter($scope.coursesRaw, function(course) {return course.category == cat;})});
+            });
+            console.log($scope.coursesAll);
+        };
+
         $scope.getCourses();
 
         $scope.searchString = '';
-
-
-        console.log($scope.coursesAll);
     });
