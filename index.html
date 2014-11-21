@@ -20,12 +20,16 @@
 
     <!--TODO fix nav to viewport on scroll-->
     <nav class="quarterSelectors">
-        <ul>
-            <li class="quarterSelect"><a href="#">Autumn</a></li>
-            <li class="quarterSelect"><a href="#">Winter</a></li>
-            <li class="quarterSelect"><a href="#">Spring</a></li>
-            <li class="quarterSelect"><a href="#">Summer</a></li>
-        </ul>
+        <div class="btn-group">
+            <button type="button"  class="quarterSelect"
+                    ng-click="sortBy('autumn')" ng-class="" >Autumn</button>
+            <button type="button"  class="quarterSelect"
+                    ng-click="sortBy('winter')" ng-class="" >Winter</button>
+            <button type="button"  class="quarterSelect"
+                    ng-click="sortBy('spring')" ng-class="" >Spring</button>
+            <button type="button"  class="quarterSelect"
+                    ng-click="sortBy('summer')" ng-class="" >Summer</button>
+        </div>
     </nav>
 
 
