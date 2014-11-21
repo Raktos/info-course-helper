@@ -49,13 +49,20 @@
 
                 <div class="courseQuarters">
                     <!--TODO swap to blank image when not avaliable that quarter-->
-                    <img src="img/autumn.png" alt="autumn"/>
-                    <img src="img/winter.png" alt="winter"/>
-                    <img src="img/spring.png" alt="spring"/>
-                    <img src="img/summer.png" alt="summer"/>
+                    <img ng-if="course.autumn" src="img/autumn.png" alt="autumn"/>
+                    <img ng-if="!course.autumn" src="img/blank.png" alt="autumn"/>
+
+                    <img ng-if="course.winter" src="img/winter.png" alt="winter"/>
+                    <img ng-if="!course.winter" src="img/blank.png" alt="winter"/>
+
+                    <img ng-if="course.spring" src="img/spring.png" alt="spring"/>
+                    <img ng-if="!course.spring" src="img/blank.png" alt="spring"/>
+
+                    <img ng-if="course.summer" src="img/summer.png" alt="summer"/>
+                    <img ng-if="!course.summer" src="img/blank.png" alt="summer"/>
                 </div>
 
-                <h3 class="courseTitle">{{course.courseSchool}} {{course.courseNumber}} - {{course.courseTitle}}</h3>
+                <h3 class="courseTitle">{{course.school}} {{course.number}} - {{course.title}}</h3>
 
                 <p class="courseCredits">({{course.credits}} credits) {{course.genre}}</p>
 
