@@ -42,6 +42,7 @@ angular.module('CoursesApp', [])
                 }
 
                 courseData.fullName = courseData.school + ' ' + courseData.number;
+                courseData.expanded = false;
             });
 
             $scope.categories.sort();
@@ -51,6 +52,10 @@ angular.module('CoursesApp', [])
                 $scope.coursesAll.push({category: cat, coursesFiltered: _.filter($scope.coursesRaw, function(course) {return course.category == cat;})});
             });
             console.log($scope.coursesAll);
+        };
+
+        $scope.expandSection = function(course) {
+            course.expanded = !course.expanded;
         };
 
         $scope.getCourses();
