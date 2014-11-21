@@ -43,9 +43,9 @@
         </div>
 
 
-        <div class="courseCategory" ng-repeat="category in coursesAll | filter : searchString">
+        <div class="courseCategory" ng-repeat="category in coursesAll | filter : searchString | filter : {{category.}}">
             <h2>{{category.category}}</h2>
-            <div class="courseBlock" ng-repeat="course in category.coursesFiltered | filter : searchString">
+            <div class="courseBlock" ng-repeat="course in category.coursesFiltered">
 
                 <div class="courseQuarters">
                     <img ng-if="course.autumn" src="img/autumn.png" alt="autumn"/>

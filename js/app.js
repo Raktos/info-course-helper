@@ -53,7 +53,10 @@ angular.module('CoursesApp', [])
             console.log($scope.coursesAll);
         };
 
+
         $scope.getCourses();
 
         $scope.searchString = '';
     });
+
+// if user pressses Autumn, creates
