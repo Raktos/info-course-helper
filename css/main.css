@@ -16,7 +16,6 @@ body {
 
 header {
     padding: 1em;
-
 }
 
 nav {
@@ -24,7 +23,10 @@ nav {
     padding: 0.5em;
     color: #EEEEEE;
     margin: 0;
+    position: fixed;
+    width: 100%;
 }
+
 
 ul {
     margin: 0;
@@ -46,6 +48,18 @@ nav a:focus {
     text-decoration: none;
 }
 
+.nav-fixed{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 0;
+    z-index: 1;
+}
+.nav-placeholder {
+    display: none;
+}
+
 header {
     background-color: #D7A900;
     color: #3f2b65;
@@ -57,6 +71,10 @@ header {
 main {
     padding-right: 1em;
     padding-left: 10%;
+    width: 100%;
+    max-width: 100%;
+    margin:0 auto;
+    padding-top: 60px;
 }
 
 h1, h2, h3 {
@@ -150,6 +168,7 @@ h3 {
     font-size: 16px;
     margin-top: 15px;
     margin-bottom: 15px;
+    z-index: -1;
 }
 
 .search input {
