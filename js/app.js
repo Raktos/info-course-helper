@@ -93,5 +93,4 @@ jQuery(document).ready(function() {
             navPlaceholder.hide();
         }
     });
-
 });
