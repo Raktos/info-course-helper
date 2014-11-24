@@ -6,7 +6,7 @@
 
 var coursesUrl = 'https://api.parse.com/1/classes/courses';
 
-angular.module('CoursesApp', [])
+angular.module('CoursesApp', ['ui.bootstrap'])
     .config(function($httpProvider) {
         $httpProvider.defaults.headers.common['X-Parse-Application-Id'] = 'ak8Tj902WzkNW9UPaOtKpyiDavZUjLA0kX5UtcAt';
         $httpProvider.defaults.headers.common['X-Parse-REST-API-Key'] = 'yaNum4wz2FQcIzSPniCalxDKiU8gxtgyAfn0SHXU';
@@ -43,7 +43,7 @@ angular.module('CoursesApp', [])
                 }
 
                 courseData.fullName = courseData.school + ' ' + courseData.number;
-                courseData.expanded = false;
+                courseData.collapsed = true;
             });
 
             $scope.categories.sort();
@@ -53,10 +53,6 @@ angular.module('CoursesApp', [])
                 $scope.coursesAll.push({category: cat, coursesFiltered: _.filter($scope.coursesRaw, function(course) {return course.category == cat;})});
             });
             console.log($scope.coursesAll);
-        };
-
-        $scope.expandSection = function(course) {
-            course.expanded = !course.expanded;
         };
 
         $scope.getCourses();

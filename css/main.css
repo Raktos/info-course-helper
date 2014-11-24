@@ -206,21 +206,8 @@ h3 {
     left: 13px;
 }
 
-.slider {
-    overflow-y: hidden;
-    max-height: 0px;
-
-    -webkit-transition-property: all;
-
-    transition-property: all;
-    -webkit-transition-duration: .5s;
-    transition-duration: .5s;
-    -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-}
-
-.slider.expanded {
-    max-height: 1000px;
+.collapseButton:hover {
+    cursor: pointer;
 }
 
 @media (max-width: 992px) {

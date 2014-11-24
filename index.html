@@ -69,7 +69,7 @@
 
                 <p class="courseCredits">({{course.credits}} credits) {{course.genre}}</p>
 
-                <div class="slider" ng-class="{expanded: course.expanded}">
+                <div collapse="course.collapsed">
                     <p class="courseInfo">{{course.description}}</p>
 
                     <a href="https://uwstudent.washington.edu/student/myplan/course/{{course.courseSchool}}{{course.courseNumber}}">View in MyPlan</a>
@@ -81,7 +81,7 @@
                     <!--TODO user comments-->
                 </div>
 
-                <img class="arrow" src="img/autumn.png" alt="" ng-click="expandSection(course)"/>
+                <span class="pull-left glyphicon collapseButton" ng-click="course.collapsed = !course.collapsed" ng-class="{'glyphicon-chevron-down': course.collapsed, 'glyphicon-chevron-up': !course.collapsed}"></span>
             </div>
         </div>
 
