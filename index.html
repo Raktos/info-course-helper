@@ -19,7 +19,7 @@
 
 
     <!--TODO fix nav to viewport on scroll-->
-    <nav class="quarterSelectors">
+    <nav class="quarterSelectors" id="nav">
 
         <div class="btn-group">
             <button type="button"  class="btn-quarterSelect"
@@ -32,8 +32,6 @@
                     ng-click="sortBy('summer')" ng-class="" >Summer</button>
         </div>
     </nav>
-    <div class="nav-placeholder"></div>
-
 
     <main ng-if="!loading">
 
@@ -48,7 +46,7 @@
 
         <div class="courseCategory" ng-repeat="category in coursesAll | filter : searchString ">
             <h2>{{category.category}}</h2>
-            <div class="courseBlock" ng-repeat="course in category.coursesFiltered">
+            <div class="courseBlock" ng-repeat="course in category.coursesFiltered" ng-if="quarterCheck(course)">
                 <!--TODO filter by quarter-->
 
                 <h3 class="courseTitle">{{course.school}} {{course.number}} - {{course.title}}</h3>
@@ -80,7 +78,9 @@
                         <p>Requires: {{course.prerequisite}}</p>
                     </div>
 
-                    <!--TODO user comments-->
+                    <div class="commentsBlock">
+
+                    </div>
                 </div>
 
                 <span class="pull-left glyphicon collapseButton" ng-click="course.collapsed = !course.collapsed" ng-class="{'glyphicon-chevron-down': course.collapsed, 'glyphicon-chevron-up': !course.collapsed}"></span>
@@ -91,7 +91,7 @@
     </main>
     <!--TODO loading gif-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>-->
     <script src="js/app.js"></script>
     </body>
 </html>
