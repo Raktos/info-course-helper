@@ -51,6 +51,7 @@
                 <!--TODO Junior vs Senior year recommendation-->
                 <!--TODO sorting by quarter-->
 
+                <h3 class="courseTitle">{{course.school}} {{course.number}} - {{course.title}}</h3>
 
                 <div class="courseQuarters">
                     <img ng-if="course.autumn" src="img/autumn.png" alt="autumn"/>
@@ -65,8 +66,6 @@
                     <img ng-if="course.summer" src="img/summer.png" alt="summer"/>
                     <img ng-if="!course.summer" src="img/blank.png" alt="summer"/>
                 </div>
-
-                <h3 class="courseTitle">{{course.school}} {{course.number}} - {{course.title}}</h3>
 
                 <p class="courseCredits">({{course.credits}} credits) {{course.genre}}</p>
 
