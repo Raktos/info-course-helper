@@ -29,6 +29,7 @@ nav {
     margin: 0;
     position: fixed;
     width: 100%;
+    z-index: 10000;
 }
 
 ul {
@@ -77,7 +78,8 @@ main {
     width: 100%;
     max-width: 100%;
     margin:0 auto;
-    padding-top: 60px;
+    padding-top: 2em;
+    z-index: -10000;
 }
 
 h1, h2, h3 {
@@ -177,13 +179,11 @@ h3 {
     color: darkred;
 }
 
-.search {
-    position: relative;
+.search {;
     color: #aaa;
     font-size: 16px;
-    margin-top: 15px;
+    margin-top: 0px;
     margin-bottom: 15px;
-    z-index: -1;
 }
 
 
@@ -201,9 +201,9 @@ h3 {
 }
 
 .search .fa-search {
-    position: absolute;
-    top: 13px;
-    left: 13px;
+    position: relative;
+    top: 30px;
+    left: 15px;
 }
 
 .collapseButton:hover {
@@ -224,7 +224,6 @@ h3 {
         display: none;
     }
     main {
-        padding-top: 30px;
         padding-left: 0.5em;
         padding-right: 0.5em;
     }
