@@ -20,6 +20,8 @@ angular.module('CoursesApp', ['ui.bootstrap'])
         $scope.categories = [];
         $scope.searchString = '';
 
+        $scope.quarterSort = {aut: false, win: false, spr: false, sum: false};
+
         $scope.getCourses = function() {
             $scope.loading = true;
 
@@ -56,7 +58,16 @@ angular.module('CoursesApp', ['ui.bootstrap'])
         };
 
         $scope.quarterCheck = function(course) {
-            return true;
+            if(!$scope.quarterSort.aut && !$scope.quarterSort.win && !$scope.quarterSort.spr && !$scope.quarterSort.sum){
+                return true;
+            }else{
+                var match = true;
+                if($scope.quarterSort.aut){match &= $scope.quarterSort.aut == course.autumn;}
+                if($scope.quarterSort.win){match &= $scope.quarterSort.win == course.winter;}
+                if($scope.quarterSort.spr){match &= $scope.quarterSort.spr == course.spring;}
+                if($scope.quarterSort.sum){match &= $scope.quarterSort.sum == course.summer;}
+                return match;
+            }
         };
 
         ////////////////////////////////////
