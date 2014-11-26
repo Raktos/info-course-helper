@@ -22,14 +22,10 @@
     <nav class="quarterSelectors" id="nav">
 
         <div class="btn-group">
-            <button type="button"  class="btn-quarterSelect"
-                    ng-click="quarterSort.aut = !quarterSort.aut" ng-class="" >Autumn</button>
-            <button type="button"  class="btn-quarterSelect"
-                    ng-click="quarterSort.win = !quarterSort.win" ng-class="" >Winter</button>
-            <button type="button"  class="btn-quarterSelect"
-                    ng-click="quarterSort.spr = !quarterSort.spr" ng-class="" >Spring</button>
-            <button type="button"  class="btn-quarterSelect"
-                    ng-click="quarterSort.sum = !quarterSort.sum" ng-class="" >Summer</button>
+            <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.aut = !quarterSort.aut" ng-class="{btnActive: quarterSort.aut}" >Autumn</button>
+            <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.win = !quarterSort.win" ng-class="{btnActive: quarterSort.win}" >Winter</button>
+            <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.spr = !quarterSort.spr" ng-class="{btnActive: quarterSort.spr}" >Spring</button>
+            <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.sum = !quarterSort.sum" ng-class="{btnActive: quarterSort.sum}" >Summer</button>
         </div>
     </nav>
 
