@@ -40,9 +40,9 @@
         </div>
 
 
-        <div class="courseCategory" ng-repeat="category in coursesAll | filter : searchString ">
+        <div class="courseCategory" ng-repeat="category in coursesAll">
             <h2>{{category.category}}</h2>
-            <div class="courseBlock" ng-repeat="course in category.coursesFiltered" ng-if="quarterCheck(course)">
+            <div class="courseBlock" ng-repeat="course in category.coursesFiltered  | filter : searchString" ng-if="quarterCheck(course)">
                 <!--TODO filter by quarter-->
 
                 <h3 class="courseTitle">{{course.school}} {{course.number}} - {{course.title}}</h3>
