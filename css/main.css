@@ -27,7 +27,6 @@ nav {
     padding: 0.5em;
     color: #EEEEEE;
     margin: 0;
-    position: fixed;
     width: 100%;
     z-index: 10000;
 }

@@ -73,38 +73,27 @@ angular.module('CoursesApp', ['ui.bootstrap'])
         ////////////////////////////////////
         ///////////nav bar fixing///////////
         ////////////////////////////////////
-        //TODO update to use jqLite
-//        $('p a[href!="#top"]').attr('target', '_blank');
-//        $('section').hide().fadeIn(1000);
-//
-//        $('nav a, p a[href="#top"]').click(function (eventObject) {
-//            //console.log(this.hash);
-//            var targetElement = angular.element(this.hash);
-//            $('html,body').animate({scrollTop: targetElement.offset().top - navHeight}, 700);
-//
-//            eventObject.preventDefault();
-//        });
-//
-//        var nav = $('nav');
-//        var navTop = nav.offset().top; //returns location of top of navbar
-//        var navHeight = nav.outerHeight(); //returns height of nav bar
-//        var navPlaceholder = angular.element('.nav-placeholder'); //placeholder so that when nav is removed from pageflow we don't jump
-//        navPlaceholder.height(navHeight);
-//
-//        $(window).scroll(function () {
-//            var scrollPos = $(this).scrollTop(); //returns scroll position of this (which is the current window)
-//            //console.log(scrollPos);
-//
-//            //once the nav bar's top is off the screen...
-//            if (scrollPos > navTop) {
-//                //...fix it to the window
-//                nav.addClass('nav-fixed');
-//                navPlaceholder.show();
-//            } else {
-//                nav.removeClass('nav-fixed');
-//                navPlaceholder.hide();
-//            }
-//        });
+
+        var nav = $('nav');
+        var navTop = nav.offset().top; //returns location of top of navbar
+        var navHeight = nav.outerHeight(); //returns height of nav bar
+        var navPlaceholder = $('.nav-placeholder'); //placeholder so that when nav is removed from pageflow we don't jump
+        navPlaceholder.height(navHeight);
+
+        $(window).scroll(function () {
+            var scrollPos = $(this).scrollTop(); //returns scroll position of this (which is the current window)
+            //console.log(scrollPos);
+
+            //once the nav bar's top is off the screen...
+            if (scrollPos > navTop) {
+                //...fix it to the window
+                nav.addClass('nav-fixed');
+                navPlaceholder.show();
+            } else {
+                nav.removeClass('nav-fixed');
+                navPlaceholder.hide();
+            }
+        });
         ////////////////////////////////////
         ////////nav bar fixing end//////////
         ////////////////////////////////////
