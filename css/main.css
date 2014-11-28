@@ -209,7 +209,7 @@ h3 {
     clear: both;
 }
 
-.collapseButton:hover {
+.collapseButton:hover, .thumbUp:hover, .thumbDown:hover {
     cursor: pointer;
 }
 

@@ -4,7 +4,7 @@
 
 "use strict";
 
-var dataUrl = 'https://api.parse.com/1/classes/';
+var dataUrl = 'https://api.parse.com/1/classes';
 
 angular.module('CoursesApp', ['ui.bootstrap'])
     .config(function($httpProvider) {
@@ -17,16 +17,16 @@ angular.module('CoursesApp', ['ui.bootstrap'])
         $scope.commentsRaw = [];
         $scope.errorMessage = null;
         $scope.loading = false;
-//        $scope.categories = ['Core', 'Prerequisite', 'Elective'];
         $scope.categories = [];
         $scope.searchString = '';
-
+        $scope.newComment = {rating: 1, name: '', title: '', body: '', score: 0, courseId: null};
         $scope.quarterSort = {aut: false, win: false, spr: false, sum: false};
 
+        //gets courses from the parse database
         $scope.getCourses = function() {
             $scope.loading = true;
 
-            $http.get(dataUrl + 'courses/')
+            $http.get(dataUrl + '/courses')
                 .success(function(data) {
                     $scope.coursesRaw = data.results;
                     $scope.sortCourses();
@@ -39,12 +39,14 @@ angular.module('CoursesApp', ['ui.bootstrap'])
                 });
         }; // getCourses()
 
+        //sorts the courses leaving the raw array intact
         $scope.sortCourses = function() {
             _.forEach($scope.coursesRaw, function(courseData) {
                 if($scope.categories.indexOf(courseData.category) < 0) {
                     $scope.categories.push(courseData.category);
                 }
 
+                //adds a few properties that don't need to be stored in the database but are required for the webapp
                 courseData.fullName = courseData.school + ' ' + courseData.number;
                 courseData.collapsed = true;
                 courseData.commentsCollapsed = true;
@@ -56,13 +58,14 @@ angular.module('CoursesApp', ['ui.bootstrap'])
             _.forEach($scope.categories, function(cat) {
                 $scope.coursesAll.push({category: cat, coursesFiltered: _.filter($scope.coursesRaw, function(course) {return course.category == cat;})});
             });
-            console.log($scope.coursesAll);
         };
 
+        //checks for and allows sorting by quarter offered
         $scope.quarterCheck = function(course) {
             if(!$scope.quarterSort.aut && !$scope.quarterSort.win && !$scope.quarterSort.spr && !$scope.quarterSort.sum){
                 return true;
             }else{
+                //we only need to compare if the user selected a specific quarter, for example if the user selects autumn and spring we don't need to check summer at all, we don't care if it's offered summer or not
                 var match = true;
                 if($scope.quarterSort.aut){match &= $scope.quarterSort.aut == course.autumn;}
                 if($scope.quarterSort.win){match &= $scope.quarterSort.win == course.winter;}
@@ -75,7 +78,6 @@ angular.module('CoursesApp', ['ui.bootstrap'])
         ////////////////////////////////////
         ///////////nav bar fixing///////////
         ////////////////////////////////////
-
         var nav = $('nav');
         var navTop = nav.offset().top; //returns location of top of navbar
         var navHeight = nav.outerHeight(); //returns height of nav bar
@@ -100,10 +102,12 @@ angular.module('CoursesApp', ['ui.bootstrap'])
         ////////nav bar fixing end//////////
         ////////////////////////////////////
 
+        //get comments from parse database
         $scope.getComments = function() {
             $scope.loading = true;
-            $http.get(dataUrl + 'comments/')
+            $http.get(dataUrl + '/comments')
                 .success(function(data) {
+                    //sort the comments by score
                     $scope.commentsRaw = _.sortBy(data.results, 'score').reverse();
                 })
                 .error(function(err) {
@@ -114,10 +118,11 @@ angular.module('CoursesApp', ['ui.bootstrap'])
                 });
         }; //getComments()
 
+        //add a comment
         $scope.addComment = function(course) {
             $scope.newComment.courseId = course.objectId;
             $scope.loading = true;
-            $http.post(dataUrl + 'comments/', $scope.newComment)
+            $http.post(dataUrl + '/comments', $scope.newComment)
                 .success(function(responseData) {
                     $scope.newComment.objectId = responseData.objectId;
                     $scope.commentsRaw.push($scope.newComment);
@@ -131,10 +136,29 @@ angular.module('CoursesApp', ['ui.bootstrap'])
                 });
         }; //addComment()
 
+        //increment the score of a comment
+        $scope.incrementScore = function(comment, amt) {
+            $http.put(dataUrl + '/comments/' + comment.objectId, {
+                score: {
+                    __op: 'Increment',
+                    amount: amt
+                }
+            })
+                .success(function(responseData) {
+                    //console.log(responseData);
+                    if(responseData.score < 0) {
+                        //catch the case where two people are voting on the same thing and stop it from going below 0
+                        $scope.incrementScore(comment, 1);
+                    } else {
+                        comment.score = responseData.score;
+                    }
+                })
+                .error(function(err) {
+                    $scope.errorMessage = err;
+                });
+        }; //incrementScore()
+
+        //get all data
         $scope.getCourses();
         $scope.getComments();
-
-        $scope.newComment = {rating: 1, name: '', title: '', body: '', score: 0, courseId: null};
-
-        console.log($scope.coursesAll);
     });
