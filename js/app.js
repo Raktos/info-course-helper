@@ -121,7 +121,7 @@ angular.module('CoursesApp', ['ui.bootstrap'])
         //add a comment
         $scope.addComment = function(course) {
             $scope.newComment.courseId = course.objectId;
-            $scope.loading = true;
+            $scope.loadingComment = true;
             $http.post(dataUrl + '/comments', $scope.newComment)
                 .success(function(responseData) {
                     $scope.newComment.objectId = responseData.objectId;
@@ -132,13 +132,13 @@ angular.module('CoursesApp', ['ui.bootstrap'])
                     $scope.errorMessage = err;
                 })
                 .finally(function() {
-                    $scope.loading = false;
+                    $scope.loadingComment = false;
                 });
         }; //addComment()
 
         //increment the score of a comment
         $scope.incrementScore = function(comment, amt) {
-            if(!$.cookie('com' + comment.objectId)) {
+            if(!$.cookie('comment' + comment.objectId)) {
                 $http.put(dataUrl + '/comments/' + comment.objectId, {
                     score: {
                         __op: 'Increment',
@@ -154,7 +154,7 @@ angular.module('CoursesApp', ['ui.bootstrap'])
                             $scope.incrementScore(comment, 1);
                         } else {
                             comment.score = responseData.score;
-                            $.cookie('com' + comment.objectId, 'true', {expires: 30});
+                            $.cookie('comment' + comment.objectId, 'true', {expires: 30});
                         }
                     })
                     .error(function(err) {
