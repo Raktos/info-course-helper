@@ -4,7 +4,7 @@
 
 "use strict";
 
-var coursesUrl = 'https://api.parse.com/1/classes/courses';
+var dataUrl = 'https://api.parse.com/1/classes/';
 
 angular.module('CoursesApp', ['ui.bootstrap'])
     .config(function($httpProvider) {
@@ -14,6 +14,7 @@ angular.module('CoursesApp', ['ui.bootstrap'])
     .controller('CoursesController', function($scope, $http) {
         $scope.coursesRaw = [];
         $scope.coursesAll = [];
+        $scope.commentsRaw = [];
         $scope.errorMessage = null;
         $scope.loading = false;
 //        $scope.categories = ['Core', 'Prerequisite', 'Elective'];
@@ -25,7 +26,7 @@ angular.module('CoursesApp', ['ui.bootstrap'])
         $scope.getCourses = function() {
             $scope.loading = true;
 
-            $http.get(coursesUrl)
+            $http.get(dataUrl + 'courses/')
                 .success(function(data) {
                     $scope.coursesRaw = data.results;
                     $scope.sortCourses();
@@ -46,6 +47,7 @@ angular.module('CoursesApp', ['ui.bootstrap'])
 
                 courseData.fullName = courseData.school + ' ' + courseData.number;
                 courseData.collapsed = true;
+                courseData.commentsCollapsed = true;
             });
 
             $scope.categories.sort();
@@ -98,7 +100,41 @@ angular.module('CoursesApp', ['ui.bootstrap'])
         ////////nav bar fixing end//////////
         ////////////////////////////////////
 
+        $scope.getComments = function() {
+            $scope.loading = true;
+            $http.get(dataUrl + 'comments/')
+                .success(function(data) {
+                    $scope.commentsRaw = data.results;
+                })
+                .error(function(err) {
+                    $scope.errorMessage = err;
+                })
+                .finally(function() {
+                    $scope.loading = false;
+                });
+        }; //getComments()
+
+        $scope.addComment = function(course) {
+            $scope.newComment.courseId = course.objectId;
+            $scope.loading = true;
+            $http.post(dataUrl + 'comments/', $scope.newComment)
+                .success(function(responseData) {
+                    $scope.newComment.objectId = responseData.objectId;
+                    $scope.commentsRaw.push($scope.newComment);
+                    $scope.newComment = {rating: 1, name: '', title: '', body: '', score: 0, courseId: null};
+                })
+                .error(function(err) {
+                    $scope.errorMessage = err;
+                })
+                .finally(function() {
+                    $scope.loading = false;
+                });
+        }; //addComment()
+
         $scope.getCourses();
+        $scope.getComments();
+
+        $scope.newComment = {rating: 1, name: '', title: '', body: '', score: 0, courseId: null};
 
         console.log($scope.coursesAll);
     });

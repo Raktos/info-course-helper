@@ -65,7 +65,7 @@
 
                 <p class="courseCredits">({{course.credits}} credits) {{course.genre}}</p>
 
-                <div collapse="course.collapsed">
+                <div class="collapsable" collapse="course.collapsed">
                     <p class="courseInfo">{{course.description}}</p>
 
                     <!--TODO Junior vs Senior year recommendation-->
@@ -76,9 +76,53 @@
                         <p>Requires: {{course.prerequisite}}</p>
                     </div>
 
-                    <div class="commentsBlock">
-
+                    <div class="commentsBlock collapsable" collapse="course.commentsCollapsed">
+                        <h2>Comments</h2>
+                        <div class="viewCommentsBlock">
+                            <div class="viewComment" ng-repeat="comment in commentsRaw | filter : {courseId: course.objectId}">
+                                <div class="rating">
+                                    <rating name="rating" max="5" ng-model="comment.rating" readonly="true"></rating>
+                                </div>
+                                <h3 class="commentTitle">{{comment.title}}</h3>
+                                <p class="name">{{comment.name}}</p>
+                                <p class="commentBody">{{comment.body}}</p>
+                                <!--<div class="score">-->
+                                    <!--{{comment.score}}-->
+                                    <!--<span class="glyphicon glyphicon-thumbs-up" ng-click="incrementScore(comment, 1)"></span>-->
+                                    <!--<span class="glyphicon glyphicon-thumbs-down" ng-if="comment.score > 0" ng-click="incrementScore(comment, -1)"></span>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+                        <div class="addCommentBlock">
+                            <h3>Add Comment</h3>
+                            <form class="commentForm" name="commentForm" ng-submit="addComment(course)">
+                                <!--TODO form validation-->
+                                <div class="form-group">
+                                    <label>Rating</label><br>
+                                    <rating name="rating" max="5" ng-model="newComment.rating"></rating>
+                                </div>
+                                <div class="form-group formName">
+                                    <label for="name">Name</label>
+                                    <input class="form-control" type="text" name="name" id="name" placeholder="Name..." ng-model="newComment.name"/>
+                                </div>
+                                <div class="form-group formTitle">
+                                    <label for="commentTitle">Comment Title</label>
+                                    <input class="form-control" type="text" name="commentTitle" id="commentTitle" placeholder="Title..." ng-model="newComment.title"/>
+                                </div>
+                                <div class="form-group formBody">
+                                    <label for="commentBody">Comments</label>
+                                    <textarea class="form-control" name="commentBody" id="commentBody" placeholder="Comments..." ng-model="newComment.body"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary" ng-if="!loading"><!--ng-disabled="inserting"-->Submit Comment</button>
+                                    <img src="img/ajax-spinner.gif" alt="loading" ng-if="loading"/>
+                                </div>
+                                <!--<h3>TEMP newComment Object Status</h3>-->
+                                <!--<p>{{newComment}}</p>-->
+                            </form>
+                        </div>
                     </div>
+                    <span class="pull-right glyphicon collapseButton" ng-click="course.commentsCollapsed = !course.commentsCollapsed" ng-class="{'glyphicon-chevron-down': course.commentsCollapsed, 'glyphicon-chevron-up': !course.commentsCollapsed}"></span>
                 </div>
 
                 <span class="pull-left glyphicon collapseButton" ng-click="course.collapsed = !course.collapsed" ng-class="{'glyphicon-chevron-down': course.collapsed, 'glyphicon-chevron-up': !course.collapsed}"></span>

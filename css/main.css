@@ -205,6 +205,10 @@ h3 {
     left: 15px;
 }
 
+.collapseButton {
+    clear: both;
+}
+
 .collapseButton:hover {
     cursor: pointer;
 }
