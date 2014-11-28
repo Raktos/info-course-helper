@@ -138,24 +138,30 @@ angular.module('CoursesApp', ['ui.bootstrap'])
 
         //increment the score of a comment
         $scope.incrementScore = function(comment, amt) {
-            $http.put(dataUrl + '/comments/' + comment.objectId, {
-                score: {
-                    __op: 'Increment',
-                    amount: amt
-                }
-            })
-                .success(function(responseData) {
-                    //console.log(responseData);
-                    if(responseData.score < 0) {
-                        //catch the case where two people are voting on the same thing and stop it from going below 0
-                        $scope.incrementScore(comment, 1);
-                    } else {
-                        comment.score = responseData.score;
+            if(!$.cookie('com' + comment.objectId)) {
+                $http.put(dataUrl + '/comments/' + comment.objectId, {
+                    score: {
+                        __op: 'Increment',
+                        amount: amt
                     }
                 })
-                .error(function(err) {
-                    $scope.errorMessage = err;
-                });
+                    //TODO allow negative score?
+                    //TODO find more secure way than cookies to prevent multiple votes
+                    .success(function(responseData) {
+                        //console.log(responseData);
+                        if(responseData.score < 0) {
+                            //catch the case where two people are voting on the same thing and stop it from going below 0
+                            $scope.incrementScore(comment, 1);
+                        } else {
+                            comment.score = responseData.score;
+                            $.cookie('com' + comment.objectId, 'true', {expires: 30});
+                        }
+                    })
+                    .error(function(err) {
+                        $scope.errorMessage = err;
+                    });
+            }
+
         }; //incrementScore()
 
         //get all data
