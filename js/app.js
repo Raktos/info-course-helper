@@ -104,7 +104,7 @@ angular.module('CoursesApp', ['ui.bootstrap'])
             $scope.loading = true;
             $http.get(dataUrl + 'comments/')
                 .success(function(data) {
-                    $scope.commentsRaw = data.results;
+                    $scope.commentsRaw = _.sortBy(data.results, 'score').reverse();
                 })
                 .error(function(err) {
                     $scope.errorMessage = err;
