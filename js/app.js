@@ -148,14 +148,7 @@ angular.module('CoursesApp', ['ui.bootstrap'])
                     //TODO allow negative score?
                     //TODO find more secure way than cookies to prevent multiple votes
                     .success(function(responseData) {
-                        //console.log(responseData);
-                        if(responseData.score < 0) {
-                            //catch the case where two people are voting on the same thing and stop it from going below 0
-                            $scope.incrementScore(comment, 1);
-                        } else {
-                            comment.score = responseData.score;
-                            localStorage.setItem('comment' + comment.objectId, 'true');
-                        }
+                        localStorage.setItem('comment' + comment.objectId, 'true');
                     })
                     .error(function(err) {
                         $scope.errorMessage = err;
