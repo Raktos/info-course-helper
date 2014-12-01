@@ -220,8 +220,16 @@ h3 {
     display: inline-block;
 }
 
+
+h4 {
+    font-size: 24px;
+    margin-top: 1em;
+    font-weight: bold;
+}
+
 .viewComment {
-    border: solid black;
+    border-bottom: solid darkgray;
+    border-radius: 5px;
     margin: 1em 0 1em 0;
     list-style: none;
 }
@@ -231,7 +239,7 @@ h3 {
 }
 
 .remove, .rating, .name, .commentBody, .score {
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 .score {

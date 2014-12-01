@@ -78,7 +78,7 @@
                     </div>
 
                     <div class="commentsBlock collapsable" collapse="course.commentsCollapsed">
-                        <h2>Comments</h2>
+                        <h4>Comments</h4>
                         <div class="viewCommentsBlock">
                             <div class="viewComment" ng-repeat="comment in commentsRaw | filter : {courseId: course.objectId}">
                                 <div class="rating">
@@ -95,7 +95,7 @@
                             </div>
                         </div>
                         <div class="addCommentBlock">
-                            <h3>Add Comment</h3>
+                            <h5>Add Comment</h5>
                             <form class="commentForm" name="commentForm" ng-submit="addComment(course)">
                                 <!--TODO form validation-->
                                 <div class="form-group">
