@@ -71,13 +71,15 @@
 
                     <!--TODO Junior vs Senior year recommendation-->
 
-                    <a href="https://uwstudent.washington.edu/student/myplan/course/{{course.school}}{{course.number}}" target="_blank">View in MyPlan</a>
+
 
                     <div class="coursePreReqs" ng-if="course.prerequisite">
-                        <p>Requires: {{course.prerequisite}}</p>
+                        <p>Requires: {{course.prerequisite}} <a href="https://uwstudent.washington.edu/student/myplan/course/{{course.school}}{{course.number}}" target="_blank">View in MyPlan</a></p>
+
                     </div>
 
                     <div class="commentsBlock collapsable" collapse="course.commentsCollapsed">
+                        <p class="commentsOpen" ng-click="course.commentsCollapsed = !course.commentsCollapsed">Comments <span class="glyphicon collapseButton" ng-class="{'glyphicon-chevron-down': course.commentsCollapsed, 'glyphicon-chevron-up': !course.commentsCollapsed}"></span></p>
                         <h4>Comments</h4>
                         <div class="viewCommentsBlock">
                             <div class="viewComment" ng-repeat="comment in commentsRaw | filter : {courseId: course.objectId}">
@@ -123,7 +125,7 @@
                             </form>
                         </div>
                     </div>
-                    <span class="pull-right glyphicon collapseButton" ng-click="course.commentsCollapsed = !course.commentsCollapsed" ng-class="{'glyphicon-chevron-down': course.commentsCollapsed, 'glyphicon-chevron-up': !course.commentsCollapsed}"></span>
+                    <p class="commentsOpen" ng-click="course.commentsCollapsed = !course.commentsCollapsed">Comments <span class="glyphicon collapseButton" ng-class="{'glyphicon-chevron-down': course.commentsCollapsed, 'glyphicon-chevron-up': !course.commentsCollapsed}"></span></p>
                 </div>
 
                 <span class="pull-left glyphicon collapseButton" ng-click="course.collapsed = !course.collapsed" ng-class="{'glyphicon-chevron-down': course.collapsed, 'glyphicon-chevron-up': !course.collapsed}"></span>
