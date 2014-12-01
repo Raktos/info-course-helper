@@ -266,6 +266,28 @@ h4 {
     font-size: 12px;
 }
 
+h5 {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.commentForm {
+    border: solid #000000;
+}
+
+.form-group {
+    margin: 10px 10px 10px 10px;
+}
+
+.formTitle, .formRating {
+    float: left;
+}
+
+.formName {
+    clear: both;
+    font-size: 12px;
+}
+
 nav img {
     height: 1em;
     width: 1em;
