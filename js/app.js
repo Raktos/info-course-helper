@@ -138,7 +138,7 @@ angular.module('CoursesApp', ['ui.bootstrap'])
 
         //increment the score of a comment
         $scope.incrementScore = function(comment, amt) {
-            if(!$.cookie('comment' + comment.objectId)) {
+            if(!localStorage.getItem('comment' + comment.objectId)) {
                 $http.put(dataUrl + '/comments/' + comment.objectId, {
                     score: {
                         __op: 'Increment',
@@ -154,7 +154,7 @@ angular.module('CoursesApp', ['ui.bootstrap'])
                             $scope.incrementScore(comment, 1);
                         } else {
                             comment.score = responseData.score;
-                            $.cookie('comment' + comment.objectId, 'true', {expires: 30});
+                            localStorage.setItem('comment' + comment.objectId, 'true');
                         }
                     })
                     .error(function(err) {
