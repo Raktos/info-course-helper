@@ -85,7 +85,7 @@
                                     <rating name="rating" max="5" ng-model="comment.rating" readonly="true"></rating>
                                 </div>
                                 <h3 class="commentTitle">{{comment.title}}</h3>
-                                <p class="name">{{comment.name}}</p>
+                                <p class="name">By: {{comment.name}} on {{comment.createdAt | date:"longDate"}}</p>
                                 <p class="commentBody">{{comment.body}}</p>
                                 <div class="score">
                                     {{comment.score}}

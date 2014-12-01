@@ -22,7 +22,7 @@ body {
     font-family: 'Raleway', 'Helvetica Neue', 'Helvetica', sans-serif;
     font-weight: 300;
     margin: 0;
-    min-height: 511px;
+    min-height: 200px;
 }
 
 .lead {
@@ -214,6 +214,48 @@ h3 {
 .loadingMainSpinner {
     text-align: center;
     margin-top: 2em;
+}
+
+.rating {
+    display: inline-block;
+}
+
+.viewComment {
+    border: solid black;
+    margin: 1em 0 1em 0;
+    list-style: none;
+}
+
+.comments {
+    padding: 0em;
+}
+
+.remove, .rating, .name, .commentBody, .score {
+    margin-left: 10px;
+}
+
+.score {
+    margin-bottom: 5px;
+}
+
+.glyphicon-remove:hover {
+    background-color: darkgray;
+}
+
+.commentTitle {
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 4px;
+    margin-left: 4px;
+}
+
+.commentTitle, .rating {
+    float: left;
+}
+
+.name {
+    clear: both;
+    font-size: 12px;
 }
 
 nav img {
