@@ -193,9 +193,7 @@ h3 {
     border: 1px solid #aaa;
     border-radius: 5px;
     box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
-}
-
-.search input {
+    color: #000;
     text-indent: 32px;
 }
 
