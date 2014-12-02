@@ -11,10 +11,25 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.min.js"></script>
     </head>
     <body ng-app="CoursesApp" ng-controller="CoursesController">
-    <div class="header">
-        <h1>Informatics Course Helper</h1>
-        <p class="lead">Easier to view classes</p>
+    <div class="header" id="home">
+        <div class="container">
+            <div class="menu">
+                <ul class="menu-top">
+                    <li><div class="main">
+                                <section>
+                                    <button id="showRight" class="navig"></button>
+                                </section>
+                        </div></li>
+                </ul>   
+            </div>
 
+            <div class="clearfix"></div>
+            <div class="header-bottom">
+                    <p>Find Info Classes</p>
+                    <h1>Courses</h1>
+                    <a href="#nav">Get Started</a>
+            </div>
+        </div>
     </div>
 
     <nav class="quarterSelectors" id="nav">
