@@ -421,6 +421,7 @@ ul.menu-top li {
     }
     .header-bottom p {
         font-size: 19px;
+        font-weight: 200;
     }
     .header-bottom a {
         padding: 8px 15px;
@@ -443,6 +444,8 @@ ul.menu-top li {
     }
     .header-bottom a {
         padding: 12px 20px;
+        font-size: 20px;
+        font-weight:400;
     }
     .btn-quarterSelect {
         font-size: 22px;
@@ -468,6 +471,8 @@ ul.menu-top li {
     }
     .header-bottom a {
         padding: 15px 30px;
+        font-size: 22px;
+        font-weight:500;
     }
     .btn-quarterSelect {
         font-size: 25px;
@@ -492,6 +497,8 @@ ul.menu-top li {
     }
     .header-bottom a {
         padding: 15px 40px;
+        font-size: 22px;
+        font-weight:600;
     }
     .btn-quarterSelect {
         font-size: 28px;
@@ -562,7 +569,7 @@ ul.menu-top li {
         color: #fff;
         font-family: 'Lato', sans-serif;
         font-weight:700;
-        font-size:18px;
+        font-size:25px;
         text-decoration: none;
         border:2px solid #fff;
     }
