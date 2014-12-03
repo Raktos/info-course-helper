@@ -97,6 +97,7 @@ angular.module('CoursesApp', ['ui.bootstrap'])
                 nav.removeClass('nav-fixed');
                 navPlaceholder.hide();
             }
+
         });
         ////////////////////////////////////
         ////////nav bar fixing end//////////
