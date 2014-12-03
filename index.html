@@ -11,165 +11,165 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.min.js"></script>
     </head>
     <body ng-app="CoursesApp" ng-controller="CoursesController">
-    <div class="header" id="home">
-        <div class="container">
-            <div class="menu">
-                <ul class="menu-top">
-                    <li><div class="main">
-                                <section>
-                                    <button id="showRight" class="navig"></button>
-                                </section>
-                        </div></li>
-                </ul>   
-            </div>
-
-            <div class="clearfix"></div>
-            <div class="header-bottom">
-                    <p>Find Info Classes</p>
-                    <h1>Courses</h1>
-                    <a href="#nav">Get Started</a>
-            </div>
-        </div>
-    </div>
-    <!-- drop down menu -->
-    <div class="dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-        Dropdown
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-      </ul>
-    </div>
-
-    <nav class="quarterSelectors" id="nav">
-
-        <div class="btn-group">
-            <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.aut = !quarterSort.aut" ng-class="{btnActive: quarterSort.aut}" >Autumn<img src="img/autumn.png" alt="autumn" /></button>
-            <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.win = !quarterSort.win" ng-class="{btnActive: quarterSort.win}" >Winter<img src="img/winter.png" alt="autumn" /></button>
-            <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.spr = !quarterSort.spr" ng-class="{btnActive: quarterSort.spr}" >Spring<img src="img/spring.png" alt="autumn" /></button>
-            <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.sum = !quarterSort.sum" ng-class="{btnActive: quarterSort.sum}" >Summer<img src="img/summer.png" alt="autumn" /></button>
-        </div>
-    </nav>
-
-    <div class="nav-placeholder"></div>
-
-    <div class="loadingMainSpinner" ng-if="loading">
-        <img src="img/ajax-spinner.gif" alt="loading..."/>
-    </div>
-    <main ng-if="!loading">
-
-        <!--TODO something broke search. Find it.-->
-        <div class="search">
-            <div class="container-search">
-                <span class="icon"><i class="fa fa-search"></i></span>
-                <input type="text" class="searchBox" id="search" ng-model="searchString" placeholder="Search..." />
-            </div>
-        </div>
-
-
-        <div class="courseCategory" ng-repeat="category in coursesAll" ng-show="coursesShow.length > 0">
-            <h2>{{category.category}}</h2>
-            <div class="courseBlock" ng-repeat="course in coursesShow = (category.coursesFiltered  | filter : searchString)" ng-if="quarterCheck(course)">
-                <!--TODO filter by quarter-->
-
-                <h3 class="courseTitle">{{course.school}} {{course.number}} - {{course.title}}</h3>
-
-                <div class="courseQuarters">
-                    <img ng-if="course.autumn" src="img/autumn.png" alt="autumn"/>
-                    <img ng-if="!course.autumn" src="img/blank.png" alt="autumn"/>
-
-                    <img ng-if="course.winter" src="img/winter.png" alt="winter"/>
-                    <img ng-if="!course.winter" src="img/blank.png" alt="winter"/>
-
-                    <img ng-if="course.spring" src="img/spring.png" alt="spring"/>
-                    <img ng-if="!course.spring" src="img/blank.png" alt="spring"/>
-
-                    <img ng-if="course.summer" src="img/summer.png" alt="summer"/>
-                    <img ng-if="!course.summer" src="img/blank.png" alt="summer"/>
+        <header class="header" id="home">
+            <div class="container">
+                <div class="menu">
+                    <ul class="menu-top">
+                        <li><div class="main">
+                                    <section>
+                                        <button id="showRight" class="navig"></button>
+                                    </section>
+                            </div></li>
+                    </ul>
                 </div>
 
-                <p class="courseCredits">({{course.credits}} credits) {{course.genre}}</p>
+                <div class="clearfix"></div>
+                <div class="header-bottom">
+                        <p>Find Info Classes</p>
+                        <h1>Courses</h1>
+                        <a href="#nav">Get Started</a>
+                </div>
+            </div>
+        </header>
+        <!-- drop down menu -->
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+            Dropdown
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+          </ul>
+        </div>
 
-                <div class="collapsable" collapse="course.collapsed">
-                    <p class="courseInfo">{{course.description}}</p>
+        <nav class="quarterSelectors" id="nav">
 
-                    <!--TODO Junior vs Senior year recommendation-->
+            <div class="btn-group">
+                <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.aut = !quarterSort.aut" ng-class="{btnActive: quarterSort.aut}" >Autumn<img src="img/autumn.png" alt="autumn" /></button>
+                <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.win = !quarterSort.win" ng-class="{btnActive: quarterSort.win}" >Winter<img src="img/winter.png" alt="autumn" /></button>
+                <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.spr = !quarterSort.spr" ng-class="{btnActive: quarterSort.spr}" >Spring<img src="img/spring.png" alt="autumn" /></button>
+                <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.sum = !quarterSort.sum" ng-class="{btnActive: quarterSort.sum}" >Summer<img src="img/summer.png" alt="autumn" /></button>
+            </div>
+        </nav>
+
+        <div class="nav-placeholder"></div>
+
+        <div class="loadingMainSpinner" ng-if="loading">
+            <img src="img/ajax-spinner.gif" alt="loading..."/>
+        </div>
+        <main ng-if="!loading">
+
+            <!--TODO something broke search. Find it.-->
+            <div class="search">
+                <div class="container-search">
+                    <span class="icon"><i class="fa fa-search"></i></span>
+                    <input type="text" class="searchBox" id="search" ng-model="searchString" placeholder="Search..." />
+                </div>
+            </div>
 
 
+            <div class="courseCategory" ng-repeat="category in coursesAll" ng-show="coursesShow.length > 0">
+                <h2>{{category.category}}</h2>
+                <div class="courseBlock" ng-repeat="course in coursesShow = (category.coursesFiltered  | filter : searchString)" ng-if="quarterCheck(course)">
+                    <!--TODO filter by quarter-->
 
-                    <div class="coursePreReqs" ng-if="course.prerequisite">
-                        <p>Requires: {{course.prerequisite}} <a href="https://uwstudent.washington.edu/student/myplan/course/{{course.school}}{{course.number}}" target="_blank">View in MyPlan</a></p>
+                    <h3 class="courseTitle">{{course.school}} {{course.number}} - {{course.title}}</h3>
 
+                    <div class="courseQuarters">
+                        <img ng-if="course.autumn" src="img/autumn.png" alt="autumn"/>
+                        <img ng-if="!course.autumn" src="img/blank.png" alt="autumn"/>
+
+                        <img ng-if="course.winter" src="img/winter.png" alt="winter"/>
+                        <img ng-if="!course.winter" src="img/blank.png" alt="winter"/>
+
+                        <img ng-if="course.spring" src="img/spring.png" alt="spring"/>
+                        <img ng-if="!course.spring" src="img/blank.png" alt="spring"/>
+
+                        <img ng-if="course.summer" src="img/summer.png" alt="summer"/>
+                        <img ng-if="!course.summer" src="img/blank.png" alt="summer"/>
                     </div>
 
-                    <div class="commentsBlock collapsable" collapse="course.commentsCollapsed">
-                        <p class="commentsOpen" ng-click="course.commentsCollapsed = !course.commentsCollapsed">Comments
-                            <img class="arrow" src="img/up-arrow.png" alt="up-arrow" ng-if="!course.commentsCollapsed"/><img class="arrow" src="img/down-arrow.png" alt="down-arrow" ng-if="course.commentsCollapsed"/></p>
-                        <h4>Comments</h4>
-                        <div class="viewCommentsBlock">
-                            <div class="viewComment" ng-repeat="comment in commentsRaw | filter : {courseId: course.objectId}">
-                                <div class="rating">
-                                    <rating name="rating" max="5" ng-model="comment.rating" readonly="true"></rating>
-                                </div>
-                                <h3 class="commentTitle">{{comment.title}}</h3>
-                                <p class="name">By: {{comment.name}} on {{comment.createdAt | date:"longDate"}}</p>
-                                <p class="commentBody">{{comment.body}}</p>
-                                <div class="score">
-                                    {{comment.score}}
-                                    <span class="glyphicon glyphicon-thumbs-up thumbUp" ng-click="incrementScore(comment, 1)"></span>
-                                    <span class="glyphicon glyphicon-thumbs-down thumbDown" ng-click="incrementScore(comment, -1)"></span>
+                    <p class="courseCredits">({{course.credits}} credits) {{course.genre}}</p>
+
+                    <div class="collapsable" collapse="course.collapsed">
+                        <p class="courseInfo">{{course.description}}</p>
+
+                        <!--TODO Junior vs Senior year recommendation-->
+
+
+
+                        <div class="coursePreReqs" ng-if="course.prerequisite">
+                            <p>Requires: {{course.prerequisite}} <a href="https://uwstudent.washington.edu/student/myplan/course/{{course.school}}{{course.number}}" target="_blank">View in MyPlan</a></p>
+
+                        </div>
+
+                        <div class="commentsBlock collapsable" collapse="course.commentsCollapsed">
+                            <p class="commentsOpen" ng-click="course.commentsCollapsed = !course.commentsCollapsed">Comments
+                                <img class="arrow" src="img/up-arrow.png" alt="up-arrow" ng-if="!course.commentsCollapsed"/><img class="arrow" src="img/down-arrow.png" alt="down-arrow" ng-if="course.commentsCollapsed"/></p>
+                            <h4>Comments</h4>
+                            <div class="viewCommentsBlock">
+                                <div class="viewComment" ng-repeat="comment in commentsRaw | filter : {courseId: course.objectId}">
+                                    <div class="rating">
+                                        <rating name="rating" max="5" ng-model="comment.rating" readonly="true"></rating>
+                                    </div>
+                                    <h3 class="commentTitle">{{comment.title}}</h3>
+                                    <p class="name">By: {{comment.name}} on {{comment.createdAt | date:"longDate"}}</p>
+                                    <p class="commentBody">{{comment.body}}</p>
+                                    <div class="score">
+                                        {{comment.score}}
+                                        <span class="glyphicon glyphicon-thumbs-up thumbUp" ng-click="incrementScore(comment, 1)"></span>
+                                        <span class="glyphicon glyphicon-thumbs-down thumbDown" ng-click="incrementScore(comment, -1)"></span>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="addCommentBlock">
+                                <h5>Add Comment</h5>
+                                <form class="commentForm" name="commentForm" ng-submit="addComment(course)">
+                                    <!--TODO form validation-->
+                                    <div class="form-group formRating">
+                                        <label class="rating-label">Rating:</label>
+                                        <rating class="rating-stars" name="rating" max="5" ng-model="newComment.rating"></rating>
+                                    </div>
+                                    <div class="form-group formName">
+                                        <label for="name">Name:</label>
+                                        <input class="form-control" type="text" name="name" id="name" placeholder="Name..." ng-model="newComment.name"/>
+                                    </div>
+                                    <div class="form-group formTitle">
+                                        <label for="commentTitle">Comment Title:</label>
+                                        <input class="form-control" type="text" name="commentTitle" id="commentTitle" placeholder="Title..." ng-model="newComment.title"/>
+                                    </div>
+                                    <div class="form-group formBody">
+                                        <label for="commentBody">Comment:</label>
+                                        <textarea class="form-control" name="commentBody" id="commentBody" placeholder="Comments..." ng-model="newComment.body"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary" ng-if="!loadingComment"><!--ng-disabled="inserting"-->Submit Comment</button>
+                                        <img src="img/ajax-spinner.gif" alt="loading" ng-if="loadingComment"/>
+                                    </div>
+                                    <!--<h3>TEMP newComment Object Status</h3>-->
+                                    <!--<p>{{newComment}}</p>-->
+                                </form>
+                            </div>
                         </div>
-                        <div class="addCommentBlock">
-                            <h5>Add Comment</h5>
-                            <form class="commentForm" name="commentForm" ng-submit="addComment(course)">
-                                <!--TODO form validation-->
-                                <div class="form-group formRating">
-                                    <label class="rating-label">Rating:</label>
-                                    <rating class="rating-stars" name="rating" max="5" ng-model="newComment.rating"></rating>
-                                </div>
-                                <div class="form-group formName">
-                                    <label for="name">Name:</label>
-                                    <input class="form-control" type="text" name="name" id="name" placeholder="Name..." ng-model="newComment.name"/>
-                                </div>
-                                <div class="form-group formTitle">
-                                    <label for="commentTitle">Comment Title:</label>
-                                    <input class="form-control" type="text" name="commentTitle" id="commentTitle" placeholder="Title..." ng-model="newComment.title"/>
-                                </div>
-                                <div class="form-group formBody">
-                                    <label for="commentBody">Comment:</label>
-                                    <textarea class="form-control" name="commentBody" id="commentBody" placeholder="Comments..." ng-model="newComment.body"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary" ng-if="!loadingComment"><!--ng-disabled="inserting"-->Submit Comment</button>
-                                    <img src="img/ajax-spinner.gif" alt="loading" ng-if="loadingComment"/>
-                                </div>
-                                <!--<h3>TEMP newComment Object Status</h3>-->
-                                <!--<p>{{newComment}}</p>-->
-                            </form>
-                        </div>
+                        <p class="commentsOpen" ng-click="course.commentsCollapsed = !course.commentsCollapsed">Comments <img class="arrow" src="img/up-arrow.png" alt="up-arrow" ng-if="!course.commentsCollapsed"/><img class="arrow" src="img/down-arrow.png" alt="down-arrow" ng-if="course.commentsCollapsed"/></p>
                     </div>
-                    <p class="commentsOpen" ng-click="course.commentsCollapsed = !course.commentsCollapsed">Comments <img class="arrow" src="img/up-arrow.png" alt="up-arrow" ng-if="!course.commentsCollapsed"/><img class="arrow" src="img/down-arrow.png" alt="down-arrow" ng-if="course.commentsCollapsed"/></p>
+
+                    <span class="pull-left glyphicon collapseButton" ng-click="course.collapsed = !course.collapsed" ng-class="{'glyphicon-chevron-down': course.collapsed, 'glyphicon-chevron-up': !course.collapsed}"></span>
                 </div>
-
-                <span class="pull-left glyphicon collapseButton" ng-click="course.collapsed = !course.collapsed" ng-class="{'glyphicon-chevron-down': course.collapsed, 'glyphicon-chevron-up': !course.collapsed}"></span>
             </div>
-        </div>
 
-        <!--TODO back to top-->
-        <footer class="row">    
-            <p>&copy; 2014, INFO Course Helper Group, <a href="mailto:info@infocoursehelper.com">info@infocoursehelper.com</a></p>
-            <p><a href="#home">Back to the top &uarr;</a></p>
-        </footer>
-    </main>
-    <!--TODO loading gif-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/app.js"></script>
+            <!--TODO back to top-->
+            <footer class="row">
+                <p>&copy; 2014, INFO Course Helper Group, <a href="mailto:info@infocoursehelper.com">info@infocoursehelper.com</a></p>
+                <p><a href="#home">Back to the top &uarr;</a></p>
+            </footer>
+        </main>
+        <!--TODO loading gif-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/app.js"></script>
     </body>
 </html>
