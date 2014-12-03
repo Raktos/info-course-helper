@@ -146,8 +146,6 @@ angular.module('CoursesApp', ['ui.bootstrap'])
                         amount: amt
                     }
                 })
-                    //TODO allow negative score?
-                    //TODO find more secure way than cookies to prevent multiple votes
                     .success(function(responseData) {
                         localStorage.setItem('comment' + comment.objectId, 'true');
                     })
