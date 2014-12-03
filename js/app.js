@@ -86,8 +86,8 @@ angular.module('CoursesApp', ['ui.bootstrap'])
 
         $(window).scroll(function () {
             var scrollPos = $(this).scrollTop(); //returns scroll position of this (which is the current window)
-            //console.log(scrollPos);
-
+            // console.log(scrollPos);
+            // console.log(navTop);
             //once the nav bar's top is off the screen...
             if (scrollPos > navTop) {
                 //...fix it to the window

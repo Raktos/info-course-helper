@@ -11,38 +11,26 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.min.js"></script>
     </head>
     <body ng-app="CoursesApp" ng-controller="CoursesController">
-
-    <div class="header" id="home">
-        <div class="container">
-            <!-- dropdown menu -->
-            <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle navig" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true"></button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <li role="presentation" ng-repeat="category in coursesAll"><a role="menuitem" tabindex="-1" href="#{{category.category}}">{{category.category}}</a></li>
-              </ul>
-            </div> 
-            <!-- End of dropdown menu -->          
-            <div class="clearfix"></div>
-            <div class="header-bottom">
-                    <p>Find Info Classes</p>
-                    <h1>Courses</h1>
-                    <a href="#nav">Get Started</a>
+        <!-- header section begin -->
+        <div class="header" id="home">
+            <div class="container">
+                <!-- dropdown menu -->
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle navig" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true"></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation" ng-repeat="category in coursesAll"><a role="menuitem" tabindex="-1" href="#{{category.category}}">{{category.category}}</a></li>
+                  </ul>
+                </div> 
+                <!-- End of dropdown menu -->         
+                <div class="clearfix"></div>
+                <div class="header-bottom">
+                        <p>Find Info Classes</p>
+                        <h1>Courses</h1>
+                        <a href="#nav">Get Started</a>
+                </div>
             </div>
-            </div>
-        </header>
-        <!-- drop down menu -->
-        <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-            Dropdown
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-          </ul>
         </div>
+        <!-- header section end -->
 
         <nav class="quarterSelectors" id="nav">
 
@@ -69,19 +57,11 @@
                 </div>
             </div>
 
-
-<<<<<<< HEAD
         <div class="courseCategory" ng-repeat="category in coursesAll" ng-show="coursesShow.length > 0">
             <div class="category-placeholder" id="{{category.category}}"></div>
             <h2>{{category.category}}</h2>
             <div class="courseBlock" ng-repeat="course in coursesShow = (category.coursesFiltered  | filter : searchString)" ng-if="quarterCheck(course)">
                 <!--TODO filter by quarter-->
-=======
-            <div class="courseCategory" ng-repeat="category in coursesAll" ng-show="coursesShow.length > 0">
-                <h2>{{category.category}}</h2>
-                <div class="courseBlock" ng-repeat="course in coursesShow = (category.coursesFiltered  | filter : searchString)" ng-if="quarterCheck(course)">
-                    <!--TODO filter by quarter-->
->>>>>>> b9a7910b3767968433ea5f1f80cd7da0dc845803
 
                     <h3 class="courseTitle">{{course.school}} {{course.number}} - {{course.title}}</h3>
 
