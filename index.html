@@ -66,10 +66,10 @@
                     <h3 class="courseTitle">{{course.school}} {{course.number}} - {{course.title}}</h3>
 
                     <div class="courseQuarters">
-                        <p ng-class="{quarterUnavaliable: !course.autumn}">Au</p><p>|</p>
-                        <p ng-class="{quarterUnavaliable: !course.winter}">Wi</p><p>|</p>
-                        <p ng-class="{quarterUnavaliable: !course.spring}">Sp</p><p>|</p>
-                        <p ng-class="{quarterUnavaliable: !course.summer}">Su</p>
+                        <p ng-class="{quarterUnavaliable: !course.autumn, quarterSelected: quarterSort.aut}">Au</p><p>|</p>
+                        <p ng-class="{quarterUnavaliable: !course.winter, quarterSelected: quarterSort.win}">Wi</p><p>|</p>
+                        <p ng-class="{quarterUnavaliable: !course.spring, quarterSelected: quarterSort.spr}">Sp</p><p>|</p>
+                        <p ng-class="{quarterUnavaliable: !course.summer, quarterSelected: quarterSort.sum}">Su</p>
                     </div>
 
                     <p class="courseCredits">({{course.credits}} credits) {{course.genre}}</p>
