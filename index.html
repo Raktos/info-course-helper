@@ -14,14 +14,6 @@
         <!-- header section begin -->
         <div class="header" id="home">
             <div class="container">
-                <!-- dropdown menu -->
-                <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle navig" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true"></button>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                        <li role="presentation" ng-repeat="category in coursesAll"><a role="menuitem" tabindex="-1" href="#{{category.category}}">{{category.category}}</a></li>
-                  </ul>
-                </div> 
-                <!-- End of dropdown menu -->         
                 <div class="clearfix"></div>
                 <div class="header-bottom">
                         <p>University of Washington Informatics</p>
@@ -39,8 +31,17 @@
                 <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.win = !quarterSort.win" ng-class="{btnActive: quarterSort.win}" >Winter</button>
                 <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.spr = !quarterSort.spr" ng-class="{btnActive: quarterSort.spr}" >Spring</button>
                 <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.sum = !quarterSort.sum" ng-class="{btnActive: quarterSort.sum}" >Summer</button>
+
             </div>
         </nav>
+        <!-- dropdown menu -->
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle navig" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true"></button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation" ng-repeat="category in coursesAll"><a role="menuitem" tabindex="-1" href="#{{category.category}}">{{category.category}}</a></li>
+            </ul>
+        </div>
+        <!-- End of dropdown menu -->
 
         <div class="nav-placeholder"></div>
 
@@ -49,7 +50,6 @@
         </div>
         <main ng-if="!loading">
 
-            <!--TODO something broke search. Find it.-->
             <div class="search">
                 <div class="container-search">
                     <span class="icon"><i class="fa fa-search"></i></span>

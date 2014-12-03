@@ -382,6 +382,11 @@ label {
     font-size: 14px;
 }
 
+.dropdown {
+    background-color: #000000;
+    display: inline-block;
+}
+
 nav img {
     height: 1em;
     width: 1em;
