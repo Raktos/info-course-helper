@@ -53,7 +53,7 @@ button.navig{
     outline: none;
     border:0;
     float: left;
-    margin: -5px 10px;
+    margin: 5px 10px;
     cursor: pointer;
     -webkit-appearance: none;
 }
@@ -165,6 +165,9 @@ nav a:focus {
     display: none;
 }
 
+.category-placeholder {
+    display: block;
+}
 
 main {
     padding-left: 0.5em;

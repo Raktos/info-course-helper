@@ -13,16 +13,29 @@
     <body ng-app="CoursesApp" ng-controller="CoursesController">
     <div class="header" id="home">
         <div class="container">
+            <!-- dropdown menu -->
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle navig" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation" ng-repeat="category in coursesAll"><a role="menuitem" tabindex="-1" href="#{{category.category}}">{{category.category}}</a></li>
+              </ul>
+            </div>           
+<!-- 
+
             <div class="menu">
                 <ul class="menu-top">
                     <li><div class="main">
                                 <section>
-                                    <button id="showRight" class="navig"></button>
+                                    <button id="showRight" class="btn btn-default dropdown-togglenavig" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                        <span class="caret"></span>
+                                    </button>
                                 </section>
                         </div></li>
                 </ul>   
             </div>
-
+ -->
             <div class="clearfix"></div>
             <div class="header-bottom">
                     <p>Find Info Classes</p>
@@ -59,6 +72,7 @@
 
 
         <div class="courseCategory" ng-repeat="category in coursesAll" ng-show="coursesShow.length > 0">
+            <div class="category-placeholder" id="{{category.category}}"></div>
             <h2>{{category.category}}</h2>
             <div class="courseBlock" ng-repeat="course in coursesShow = (category.coursesFiltered  | filter : searchString)" ng-if="quarterCheck(course)">
                 <!--TODO filter by quarter-->
