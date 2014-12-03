@@ -339,7 +339,9 @@ h4 {
     float: left;
 }
 
-
+.commenterName {
+    clear: both;
+}
 
 h5 {
     font-weight: bold;
