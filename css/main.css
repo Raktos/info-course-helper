@@ -213,11 +213,11 @@ h3 {
 }
 
 .btn-quarterSelect:hover {
-    border: #454545;
+    border-color: #454545;
 }
 
 .btnActive {
-    color: #3c0f65;
+    background-color: #DDD;
 }
 
 .btn-group {
