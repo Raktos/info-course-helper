@@ -11,7 +11,7 @@ body {
     font-weight: 300;
     padding: 0;
     margin: 0;
-    background-color: rgba(227,245,185,0.4);
+    background-color: rgba(188, 142, 200, 0);
     -webkit-font-smoothing: antialiased;
 }
 
@@ -46,12 +46,10 @@ nav {
 
 button.navig{
     width:24px;
-    height:24px;
     background:url(../img/nav.png);
     display: block;
     outline: none;
     border:0;
-    margin: 5px 10px;
     cursor: pointer;
     -webkit-appearance: none;
 }
@@ -208,14 +206,16 @@ h3 {
     padding: 0;
     margin: 0;
     display: block;
-    width: 25%;
+    width: 23.75%;
     text-align: center;
     float: left;
-    background-color: white;
-    color: #454545;
     border: ridge rgba(0,0,0,0.1);
     box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
     font-size: 14px;
+
+    background-color: #000000;
+    color: white;
+    opacity: 0.7;
 }
 
 .btn-quarterSelect:hover {
@@ -228,6 +228,7 @@ h3 {
 
 .btn-group {
     display: block;
+    background-color: black;
 }
 
 .courseTitle {
@@ -385,6 +386,18 @@ label {
 .dropdown {
     background-color: #000000;
     display: inline-block;
+    width: 5%;
+    float: left;
+    opacity: 0.7;
+    height: 48px;
+    text-align: center;
+}
+
+.dropdown-toggle.navig {
+    display: inline-block;
+    height: inherit;
+    background-position: 50% 50%;
+    background-repeat-y: no-repeat;
 }
 
 nav img {
@@ -392,7 +405,6 @@ nav img {
     width: 1em;
     margin-left: 0.5em;
 }
-
 
 .category-placeholder {
     display: block;
