@@ -1,12 +1,12 @@
-@import url(http://fonts.googleapis.com/css?family=Raleway:300);
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+@import url(http://fonts.googleapis.com/css?family=Raleway:300,400,500,600);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,500);
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
 
 
 /*TODO get nav bar stuck touching banner*/
 
 body {
-    font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
+    font-family: 'Raleway', 'Helvetica Neue', 'Helvetica', sans-serif;
     font-size: 18px;
     font-weight: 300;
     padding: 0;
@@ -151,7 +151,7 @@ main {
     width: 100%;
     max-width: 100%;
     margin:0 auto;
-    padding-top: 1em;
+    padding-top: 0.5em;
     z-index: -10000;
 }
 
@@ -167,10 +167,12 @@ h1, h2, h3 {
 
 h2 {
     font-size: 150%;
+    font-weight: 500;
 }
 
 h3 {
     font-size: 125%;
+    font-weight: 400;
 }
 
 .collapsable a {
@@ -187,6 +189,10 @@ h3 {
     padding: 0;
     margin: 0;
     overflow: hidden;
+}
+
+.courseInfo, .commentsOpen {
+    margin-left: 15px;
 }
 
 .courseBlock {
@@ -540,9 +546,7 @@ nav img {
     }
 
     main {
-        padding-right: 1em;
-        padding-left: 10%;
-        padding-top: 2em;
+        max-width: 1600px;
     }   
 
     .header-bottom {
