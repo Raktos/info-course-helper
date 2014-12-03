@@ -35,10 +35,10 @@
         <nav class="quarterSelectors" id="nav">
 
             <div class="btn-group">
-                <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.aut = !quarterSort.aut" ng-class="{btnActive: quarterSort.aut}" >Autumn<img src="img/autumn.png" alt="autumn" /></button>
-                <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.win = !quarterSort.win" ng-class="{btnActive: quarterSort.win}" >Winter<img src="img/winter.png" alt="autumn" /></button>
-                <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.spr = !quarterSort.spr" ng-class="{btnActive: quarterSort.spr}" >Spring<img src="img/spring.png" alt="autumn" /></button>
-                <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.sum = !quarterSort.sum" ng-class="{btnActive: quarterSort.sum}" >Summer<img src="img/summer.png" alt="autumn" /></button>
+                <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.aut = !quarterSort.aut" ng-class="{btnActive: quarterSort.aut}" >Autumn</button>
+                <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.win = !quarterSort.win" ng-class="{btnActive: quarterSort.win}" >Winter</button>
+                <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.spr = !quarterSort.spr" ng-class="{btnActive: quarterSort.spr}" >Spring</button>
+                <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.sum = !quarterSort.sum" ng-class="{btnActive: quarterSort.sum}" >Summer</button>
             </div>
         </nav>
 
@@ -66,17 +66,10 @@
                     <h3 class="courseTitle">{{course.school}} {{course.number}} - {{course.title}}</h3>
 
                     <div class="courseQuarters">
-                        <img ng-if="course.autumn" src="img/autumn.png" alt="autumn"/>
-                        <img ng-if="!course.autumn" src="img/blank.png" alt="autumn"/>
-
-                        <img ng-if="course.winter" src="img/winter.png" alt="winter"/>
-                        <img ng-if="!course.winter" src="img/blank.png" alt="winter"/>
-
-                        <img ng-if="course.spring" src="img/spring.png" alt="spring"/>
-                        <img ng-if="!course.spring" src="img/blank.png" alt="spring"/>
-
-                        <img ng-if="course.summer" src="img/summer.png" alt="summer"/>
-                        <img ng-if="!course.summer" src="img/blank.png" alt="summer"/>
+                        <p ng-class="{quarterUnavaliable: !course.autumn}">Au</p><p>|</p>
+                        <p ng-class="{quarterUnavaliable: !course.winter}">Wi</p><p>|</p>
+                        <p ng-class="{quarterUnavaliable: !course.spring}">Sp</p><p>|</p>
+                        <p ng-class="{quarterUnavaliable: !course.summer}">Su</p>
                     </div>
 
                     <p class="courseCredits">({{course.credits}} credits) {{course.genre}}</p>

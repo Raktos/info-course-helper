@@ -232,9 +232,15 @@ h3 {
     float: right;
 }
 
-.courseQuarters img {
-    width: 20px;
-    height: 20px;
+.courseQuarters p {
+    display: inline-block;
+    font-size: 14pt;
+    font-weight: 400;
+    margin-right: 2px;
+}
+
+.quarterUnavaliable {
+    color: #CCC;
 }
 
 .courseCredits {
