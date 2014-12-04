@@ -57,7 +57,7 @@ angular.module('CoursesApp', ['ui.bootstrap'])
             _.forEach($scope.categories, function(cat) {
                 $scope.coursesAll.push({category: cat, coursesFiltered: _.filter($scope.coursesRaw, function(course) {return course.category == cat;})});
             });
-        };
+        }; //sortCourses
 
         //checks for and allows sorting by quarter offered
         $scope.quarterCheck = function(course) {
@@ -72,7 +72,7 @@ angular.module('CoursesApp', ['ui.bootstrap'])
                 if($scope.quarterSort.sum){match &= $scope.quarterSort.sum == course.summer;}
                 return match;
             }
-        };
+        }; //quarterCheck
 
         ////////////////////////////////////
         ///////////nav bar fixing///////////
@@ -102,12 +102,9 @@ angular.module('CoursesApp', ['ui.bootstrap'])
             navFix();
         });
 
-
-
         $(window).scroll(function () {
             navFix();
         });
-
         ////////////////////////////////////
         ////////nav bar fixing end//////////
         ////////////////////////////////////
@@ -163,9 +160,9 @@ angular.module('CoursesApp', ['ui.bootstrap'])
             modalInstance.result.then(function(newComment) {
                 $scope.commentsRaw.push(newComment);
             });
-        };
+        }; //open commentModal
 
-        //get all data
+        //run on load
         $scope.getCourses();
         $scope.getComments();
     })
