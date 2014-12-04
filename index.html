@@ -29,19 +29,25 @@
             <div class="btn-group">
                 <!-- dropdown menu -->
                 <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle navig" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true"></button>
+                    <button class="btn dropdown-toggle navig" type="button" id="dropdownMenu1"
+                            data-toggle="dropdown" aria-expanded="true"></button>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                        <li role="presentation" ng-repeat="category in coursesAll"><a role="menuitem" tabindex="-1" href="#{{category.category}}">{{category.category}}</a></li>
+                        <li role="presentation" ng-repeat="category in coursesAll">
+                            <a role="menuitem" tabindex="-1" href="#{{category.category}}">{{category.category}}</a></li>
                     </ul>
                 </div>
                 <!-- End of dropdown menu -->
 
-                <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.aut = !quarterSort.aut" ng-class="{btnActive: quarterSort.aut}" >Autumn</button>
-                <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.win = !quarterSort.win" ng-class="{btnActive: quarterSort.win}" >Winter</button>
-                <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.spr = !quarterSort.spr" ng-class="{btnActive: quarterSort.spr}" >Spring</button>
-                <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.sum = !quarterSort.sum" ng-class="{btnActive: quarterSort.sum}" >Summer</button>
+                <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.aut = !quarterSort.aut"
+                        ng-class="{btnActive: quarterSort.aut}" >Autumn</button>
+                <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.win = !quarterSort.win"
+                        ng-class="{btnActive: quarterSort.win}" >Winter</button>
+                <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.spr = !quarterSort.spr"
+                        ng-class="{btnActive: quarterSort.spr}" >Spring</button>
+                <button type="button"  class="btn-quarterSelect" ng-click="quarterSort.sum = !quarterSort.sum"
+                        ng-class="{btnActive: quarterSort.sum}" >Summer</button>
 
-
+                <div class="clearfix"></div> <!-- do not delete -->
 
             </div>
         </nav>
