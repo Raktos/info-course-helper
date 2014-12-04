@@ -11,7 +11,7 @@ angular.module('CoursesApp', ['ui.bootstrap'])
         $httpProvider.defaults.headers.common['X-Parse-Application-Id'] = 'ak8Tj902WzkNW9UPaOtKpyiDavZUjLA0kX5UtcAt';
         $httpProvider.defaults.headers.common['X-Parse-REST-API-Key'] = 'yaNum4wz2FQcIzSPniCalxDKiU8gxtgyAfn0SHXU';
     })
-    .controller('CoursesController', function($scope, $http) {
+    .controller('CoursesController', function($scope, $http, $modal) {
         $scope.coursesRaw = [];
         $scope.coursesAll = [];
         $scope.commentsRaw = [];
@@ -19,7 +19,6 @@ angular.module('CoursesApp', ['ui.bootstrap'])
         $scope.loading = false;
         $scope.categories = [];
         $scope.searchString = '';
-        $scope.newComment = {rating: 1, name: '', title: '', body: '', score: 0, courseId: null};
         $scope.quarterSort = {aut: false, win: false, spr: false, sum: false};
 
         //gets courses from the parse database
@@ -120,24 +119,6 @@ angular.module('CoursesApp', ['ui.bootstrap'])
                 });
         }; //getComments()
 
-        //add a comment
-        $scope.addComment = function(course) {
-            $scope.newComment.courseId = course.objectId;
-            $scope.loadingComment = true;
-            $http.post(dataUrl + '/comments', $scope.newComment)
-                .success(function(responseData) {
-                    $scope.newComment.objectId = responseData.objectId;
-                    $scope.commentsRaw.push($scope.newComment);
-                    $scope.newComment = {rating: 1, name: '', title: '', body: '', score: 0, courseId: null};
-                })
-                .error(function(err) {
-                    $scope.errorMessage = err;
-                })
-                .finally(function() {
-                    $scope.loadingComment = false;
-                });
-        }; //addComment()
-
         //increment the score of a comment
         $scope.incrementScore = function(comment, amt) {
             if(!localStorage.getItem('comment' + comment.objectId)) {
@@ -157,7 +138,46 @@ angular.module('CoursesApp', ['ui.bootstrap'])
 
         }; //incrementScore()
 
+        //open addCommentModal
+        $scope.openCommentModal = function(course) {
+            var modalInstance = $modal.open({
+                templateUrl: 'modals/addComment.html',
+                controller: 'ModalCtrl',
+                size: 'lg',
+                resolve: {
+                    course: function() {
+                        return course;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function(newComment) {
+                $scope.commentsRaw.push(newComment);
+            });
+        };
+
         //get all data
         $scope.getCourses();
         $scope.getComments();
+    })
+    .controller('ModalCtrl', function($scope, $http, $modalInstance, course) {
+        $scope.course = course;
+        $scope.newComment = {rating: 1, name: '', title: '', body: '', score: 0, courseId: null};
+
+        //add a comment
+        $scope.addComment = function(course) {
+            $scope.newComment.courseId = course.objectId;
+            $scope.loadingComment = true;
+            $http.post(dataUrl + '/comments', $scope.newComment)
+                .success(function(responseData) {
+                    $scope.newComment.objectId = responseData.objectId;
+                    $modalInstance.close($scope.newComment);
+                })
+                .error(function(err) {
+                    $scope.errorMessage = err;
+                })
+                .finally(function() {
+                    $scope.loadingComment = false;
+                });
+        }; //addComment()
     });
