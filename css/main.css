@@ -403,8 +403,8 @@ label {
     width: 5%;
     float: left;
     opacity: 0.7;
-    height: 48px;
     text-align: center;
+    height: 26px;
 }
 
 nav img {
@@ -444,6 +444,10 @@ nav img {
     .btn-quarterSelect {
         font-size: 16px;
     }
+
+    .dropdown {
+        height: 29px;
+    }
 }
 
 @media (min-width:480px){
@@ -479,6 +483,10 @@ nav img {
     }
     .commentsBlock {
         font-size: 17px;
+    }
+
+    .dropdown {
+        height: 37px;
     }
 }
 
@@ -523,6 +531,10 @@ nav img {
     .commentsBlock {
         font-size: 18px;
     }
+
+    .dropdown {
+        height: 42px;
+    }
 }
 
 @media (min-width:800px){
@@ -566,6 +578,9 @@ nav img {
         font-size: 18px;
     }
 
+    .dropdown {
+        height: 46px;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -637,5 +652,9 @@ nav img {
     }
     .commentsBlock {
         font-size: 19px;
+    }
+
+    .dropdown {
+        height: 49px;
     }
 }

@@ -14,7 +14,6 @@
         <!-- header section begin -->
         <div class="header" id="home">
             <div class="container">
-                <div class="clearfix"></div>
                 <div class="header-bottom">
                         <p>University of Washington Informatics</p>
                         <h1>Course Information</h1>
@@ -70,7 +69,7 @@
         <div class="courseCategory" ng-repeat="category in coursesAll" ng-show="coursesShow.length > 0">
             <div class="category-placeholder" id="{{category.category}}"></div>
             <h2>{{category.category}}</h2>
-            <div class="courseBlock" ng-repeat="course in coursesShow = (category.coursesFiltered  | filter : searchString)" ng-if="quarterCheck(course)">
+            <div class="courseBlock" ng-repeat="course in coursesShow = (category.coursesFiltered  | filter : searchString)" ng-if="quarterCheck(course)" ng-click="course.collapsed = !course.collapsed">
                 <!--TODO filter by quarter-->
 
                     <h3 class="courseTitle">{{course.school}} {{course.number}} - {{course.title}}</h3>
@@ -87,21 +86,15 @@
                     <div class="collapsable" collapse="course.collapsed">
                         <p class="courseInfo">{{course.description}}</p>
 
-                        <!--TODO Junior vs Senior year recommendation-->
-
-
-
                         <div class="coursePreReqs" ng-if="course.prerequisite">
                             <p>Requires: {{course.prerequisite}} <a href="https://uwstudent.washington.edu/student/myplan/course/{{course.school}}{{course.number}}" target="_blank">View in MyPlan</a></p>
 
                         </div>
 
-                        <!--<div class="commentsBlock collapsable" collapse="course.commentsCollapsed">-->
-                            <p class="commentsOpen" ng-click="course.commentsCollapsed = !course.commentsCollapsed">Comments
-                                <img class="arrow" src="img/up-arrow.png" alt="up-arrow" ng-if="!course.commentsCollapsed"/><img class="arrow" src="img/down-arrow.png" alt="down-arrow" ng-if="course.commentsCollapsed"/></p>
+                        <div class="commentsBlock">
                             <h4>Comments</h4>
                             <div class="viewCommentsBlock">
-                                <div class="viewComment" ng-repeat="comment in courseComments = (commentsRaw | filter : {courseId: course.objectId})">
+                                <div class="viewComment" ng-repeat="comment in commentsRaw | filter : {courseId: course.objectId}">
                                     <div class="rating">
                                         <rating name="rating" max="5" ng-model="comment.rating" readonly="true"></rating>
                                     </div>
@@ -115,12 +108,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <button class="btn btn-default" ng-click="openCommentModal(course)">Add Comment</button>
                         </div>
-                        <p class="commentsOpen" ng-click="course.commentsCollapsed = !course.commentsCollapsed">Comments <img class="arrow" src="img/up-arrow.png" alt="up-arrow" ng-if="!course.commentsCollapsed"/><img class="arrow" src="img/down-arrow.png" alt="down-arrow" ng-if="course.commentsCollapsed"/></p>
-                    <!--</div>-->
+                        <button class="btn btn-default" ng-click="openCommentModal(course); course.collapsed = true;">Add Comment</button>
+                    </div>
 
-                    <span class="pull-left glyphicon collapseButton" ng-click="course.collapsed = !course.collapsed" ng-class="{'glyphicon-chevron-down': course.collapsed, 'glyphicon-chevron-up': !course.collapsed}"></span>
+                    <span class="pull-left glyphicon collapseButton" ng-class="{'glyphicon-chevron-down': course.collapsed, 'glyphicon-chevron-up': !course.collapsed}"></span>
                 </div>
             </div>
 
