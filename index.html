@@ -96,12 +96,12 @@
 
                         </div>
 
-                        <div class="commentsBlock collapsable" collapse="course.commentsCollapsed">
+                        <!--<div class="commentsBlock collapsable" collapse="course.commentsCollapsed">-->
                             <p class="commentsOpen" ng-click="course.commentsCollapsed = !course.commentsCollapsed">Comments
                                 <img class="arrow" src="img/up-arrow.png" alt="up-arrow" ng-if="!course.commentsCollapsed"/><img class="arrow" src="img/down-arrow.png" alt="down-arrow" ng-if="course.commentsCollapsed"/></p>
                             <h4>Comments</h4>
                             <div class="viewCommentsBlock">
-                                <div class="viewComment" ng-repeat="comment in commentsRaw | filter : {courseId: course.objectId}">
+                                <div class="viewComment" ng-repeat="comment in courseComments = (commentsRaw | filter : {courseId: course.objectId})">
                                     <div class="rating">
                                         <rating name="rating" max="5" ng-model="comment.rating" readonly="true"></rating>
                                     </div>
@@ -118,7 +118,7 @@
                             <button class="btn btn-default" ng-click="openCommentModal(course)">Add Comment</button>
                         </div>
                         <p class="commentsOpen" ng-click="course.commentsCollapsed = !course.commentsCollapsed">Comments <img class="arrow" src="img/up-arrow.png" alt="up-arrow" ng-if="!course.commentsCollapsed"/><img class="arrow" src="img/down-arrow.png" alt="down-arrow" ng-if="course.commentsCollapsed"/></p>
-                    </div>
+                    <!--</div>-->
 
                     <span class="pull-left glyphicon collapseButton" ng-click="course.collapsed = !course.collapsed" ng-class="{'glyphicon-chevron-down': course.collapsed, 'glyphicon-chevron-up': !course.collapsed}"></span>
                 </div>

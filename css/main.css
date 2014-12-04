@@ -52,6 +52,11 @@ button.navig{
     border:0;
     cursor: pointer;
     -webkit-appearance: none;
+    display: inline-block;
+    height: inherit;
+    background-position: 50% 50%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
 }
 
 .container {
@@ -60,7 +65,7 @@ button.navig{
 }
 
 .dropdown-menu {
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,1);
 }
 
 ul.dropdown-menu li a{
@@ -400,13 +405,6 @@ label {
     opacity: 0.7;
     height: 48px;
     text-align: center;
-}
-
-.dropdown-toggle.navig {
-    display: inline-block;
-    height: inherit;
-    background-position: 50% 50%;
-    background-repeat-y: no-repeat;
 }
 
 nav img {
