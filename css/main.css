@@ -47,14 +47,12 @@ nav {
 button.navig{
     width:24px;
     background:url(../img/nav.png);
-    display: block;
     outline: none;
     border:0;
     cursor: pointer;
     -webkit-appearance: none;
     display: inline-block;
     height: inherit;
-    background-position: 50% 50%;
     background-position: 50% 50%;
     background-repeat: no-repeat;
 }
@@ -404,6 +402,9 @@ label {
     float: left;
     opacity: 0.7;
     text-align: center;
+}
+
+.dropdown, .btn-quarterSelect {
     height: 26px;
 }
 
@@ -445,7 +446,7 @@ nav img {
         font-size: 16px;
     }
 
-    .dropdown {
+    .dropdown, .btn-quarterSelect {
         height: 29px;
     }
 }
@@ -485,7 +486,7 @@ nav img {
         font-size: 17px;
     }
 
-    .dropdown {
+    .dropdown, .btn-quarterSelect {
         height: 37px;
     }
 }
@@ -532,7 +533,7 @@ nav img {
         font-size: 18px;
     }
 
-    .dropdown {
+    .dropdown, .btn-quarterSelect {
         height: 42px;
     }
 }
@@ -578,7 +579,7 @@ nav img {
         font-size: 18px;
     }
 
-    .dropdown {
+    .dropdown, .btn-quarterSelect {
         height: 46px;
     }
 }
@@ -654,7 +655,7 @@ nav img {
         font-size: 19px;
     }
 
-    .dropdown {
+    .dropdown, .btn-quarterSelect {
         height: 49px;
     }
 }
