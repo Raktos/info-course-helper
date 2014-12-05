@@ -102,7 +102,7 @@
                                     <h3 class="commentTitle">{{comment.title}}</h3>
                                     <p class="commenterName">By: {{comment.name}} on {{comment.createdAt | date:"longDate"}}</p>
                                     <p class="commentBody">{{comment.body}}</p>
-                                    <div class="score">
+                                    <div class="score"> Was this review helpful to you?
                                         {{comment.score}}
                                         <span class="glyphicon glyphicon-thumbs-up thumbUp" ng-click="incrementScore(comment, 1)"></span>
                                         <span class="glyphicon glyphicon-thumbs-down thumbDown" ng-click="incrementScore(comment, -1)"></span>
