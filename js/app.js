@@ -135,6 +135,7 @@ angular.module('CoursesApp', ['ui.bootstrap'])
                     }
                 })
                     .success(function(responseData) {
+                        comment.score = responseData.score;
                         localStorage.setItem('comment' + comment.objectId, 'true');
                     })
                     .error(function(err) {
