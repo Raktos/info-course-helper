@@ -339,7 +339,8 @@ h4 {
 }
 
 .viewComment {
-    border: solid lightgray;
+    border-bottom: solid lightgray;
+    border-bottom-width: 0.5em;
     border-width: 1px;
     margin: 1em;
     border-radius: 5px;
