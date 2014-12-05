@@ -45,7 +45,7 @@ nav {
 }
 
 button.navig{
-    width:24px;
+    width: 100%;
     background:url(../img/nav.png);
     outline: none;
     border:0;
@@ -229,6 +229,10 @@ h3 {
     border: solid 1px #454545;
 }
 
+.dropdown {
+    z-index: 10000;
+}
+
 .btn-default.navig:hover {
     background: none;
 }
@@ -375,11 +379,6 @@ h4 {
 h5 {
     font-weight: bold;
     font-size: 18px;
-}
-
-.commentForm {
-    border: solid darkgray;
-    border-radius: 5px;
 }
 
 .form-group {
