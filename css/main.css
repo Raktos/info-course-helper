@@ -374,7 +374,7 @@ h4 {
 
 .score {
     font-family: 'Raleway', 'Helvetica Neue', 'Helvetica', sans-serif;
-    margin-left: 0;
+    margin-left: 5px;
 }
 
 .glyphicon-remove:hover {
